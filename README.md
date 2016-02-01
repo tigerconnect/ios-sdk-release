@@ -31,4 +31,4 @@ Oren Zitoun, oren@tigertext.com
 
 ## License
 
-TigerConnect is available under the MIT license. See the LICENSE file for more info.
+TigerConnect is available under a Commercial license, please refer to our [Terms of use](http://www.tigertext.com/developer-terms-of-use/).
