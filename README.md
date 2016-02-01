@@ -25,10 +25,10 @@ it, simply add the following line to your Podfile:
 pod "TigerConnect"
 ```
 
-## Author
+## Contact
 
-Oren Zitoun, oren@tigertext.com
+If you have any questions please reach out to the TigerConnect team any time by emailing [tigerconnect@tigertext.com](tigerconnect@tigertext.com).
 
 ## License
 
-TigerConnect is available under a Commercial license, please refer to our [Terms of use](http://www.tigertext.com/developer-terms-of-use/).
+TigerConnect is licensed under the [Our Developer terms of use](http://www.tigertext.com/developer-terms-of-use/).
