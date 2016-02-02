@@ -27,7 +27,7 @@ pod "TigerConnect"
 
 ## Contact
 
-If you have any questions please reach out to the TigerConnect team any time by emailing [tigerconnect@tigertext.com](tigerconnect@tigertext.com).
+If you have any questions please reach out to the TigerConnect team any time by emailing [tigerconnect@tigertext.com](mailto:tigerconnect@tigertext.com).
 
 ## License
 
