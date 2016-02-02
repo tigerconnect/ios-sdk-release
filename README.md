@@ -31,4 +31,4 @@ If you have any questions please reach out to the TigerConnect team any time by 
 
 ## License
 
-TigerConnect is licensed under the [Our Developer terms of use](http://www.tigertext.com/developer-terms-of-use/).
+TigerConnect is licensed under [Our Developer terms of use](http://www.tigertext.com/developer-terms-of-use/).
