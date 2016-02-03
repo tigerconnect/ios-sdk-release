@@ -1,3 +1,5 @@
+# TigerConnect iOS SDK
+
 This TigerConnect Evaluation License Agreement (this “Agreement”), is made effective as of the date you click “accept” (the “Effective Date”) and is by and between TigerText, Inc., a Delaware corporation (“TigerText”) and you (“Subscriber”). If the Services will be used by or on behalf of an entity, the individual indicating acceptance of this Agreement represents that he or she has the authority to bind that entity to this Agreement, and “Subscriber” shall mean that entity. TigerText and Subscriber are sometimes referred to herein individually as a “party” and collectively as the “parties”. The parties hereby agree as follows:
 Definitions
 “API” means TigerText’s application programming interface.
