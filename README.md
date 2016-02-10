@@ -12,11 +12,11 @@ If you have any questions, comments, or issues related to this repository then p
 
 The TigerConnect iOS SDK provides a simple way to enhance your iOS applications with intelligent, secure messaging from TigerConnect
 
-In order to use the TigerConnect iOS SDK you must be a registered developer. All aspects of this setup are covered in detail in the [TigerConnect Documentation](http://tigertext.com/tigerconnect/docs).
+In order to use the TigerConnect iOS SDK you must be a registered developer. All aspects of this setup are covered in detail in the [TigerConnect Documentation](http://https://tigerconnect.readme.io/v2).
 
 ## Installation
 
-TigerConnect iOS SDK can be installed directly into your application by importing a framework or via CocoaPods. Quick installation instructions are provided below for reference, but please refer to the [TigerConnect Documentation](http://tigertext.com/tigerconnect/docs) for full details.
+TigerConnect iOS SDK can be installed directly into your application by importing a framework or via CocoaPods. Quick installation instructions are provided below for reference, but please refer to the [TigerConnect Documentation](https://tigerconnect.readme.io/v2) for full details.
 
 ### Requirements
 
@@ -45,6 +45,48 @@ Complete the installation by executing:
 $ pod install
 ```
 These instructions will setup your local CocoaPods environment and import the TigerConnect iOS SDK into your project. 
+
+## iOS 9
+
+If you install on iOS9 you need to this to your plist file:
+
+<key>NSAppTransportSecurity</key>
+<dict>
+<key>NSExceptionDomains</key>
+<dict>
+<key>cloudfront.net</key>
+<dict>
+<key>NSIncludesSubdomains</key>
+<true/>
+<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+<true/>
+<key>NSTemporaryExceptionMinimumTLSVersion</key>
+<string>1.0</string>
+<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+<false/>
+</dict>
+<key>tigertext.me</key>
+<dict>
+<key>NSExceptionAllowsInsecureHTTPLoads</key>
+<false/>
+<key>NSIncludesSubdomains</key>
+<true/>
+</dict>
+</dict>
+</dict>
+
+## Swift
+
+TTKit is an ObjC library, if you wish to run it in a swift project you will need to create a bridging header and add it to your build settings under Swift Compiler - Code Generation.
+
+Please add <TTKit/TTKit.h> to the bridging header.
+
+Please refer to: https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html
+
+## Demo
+
+Please refer to the following GIt for a quick start guide which incdlues a demo app:
+https://github.com/tigerconnect/ios-app-messenger-demo
 
 ## Contact
 
