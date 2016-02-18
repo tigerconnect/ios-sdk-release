@@ -12,7 +12,7 @@ If you have any questions, comments, or issues related to this repository then p
 
 The TigerConnect iOS SDK provides a simple way to enhance your iOS applications with intelligent, secure messaging from TigerConnect
 
-In order to use the TigerConnect iOS SDK you must be a registered developer. All aspects of this setup are covered in detail in the [TigerConnect Documentation](http://https://tigerconnect.readme.io/v2).
+In order to use the TigerConnect iOS SDK you must be a registered developer. All aspects of this setup are covered in detail in the [TigerConnect Documentation](https://tigerconnect.readme.io/).
 
 ## Installation
 
