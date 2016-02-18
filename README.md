@@ -77,13 +77,12 @@ If you install on iOS9 you need to this to your plist file:
 
 ## Swift
 
-TTKit is an ObjC library, if you wish to run it in a swift project you will need to create a bridging header and add it to your build settings under Swift Compiler - Code Generation.
-
-Please add <TTKit/TTKit.h> to the bridging header.  More information can be found [here on the Apple Developer Site](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
+TTKit is an ObjC library, if you wish to run it in a swift project you will need to create a bridging header and add it to your build settings under Swift Compiler - Code Generation.  Please add <TTKit/TTKit.h> to the bridging header.  More information can be found [here on the Apple Developer Site](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
 
 ## Demo
 
 Please refer to the following GIt for a quick start guide which incdlues a demo app:
+
 https://github.com/tigerconnect/ios-app-messenger-demo
 
 ## Contact
