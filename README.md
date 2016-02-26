@@ -16,7 +16,7 @@ In order to use the TigerConnect iOS SDK you must be a registered developer. All
 
 ## Installation
 
-TigerConnect iOS SDK can be installed directly into your application by importing a framework or via CocoaPods. Quick installation instructions are provided below for reference, but please refer to the [TigerConnect Documentation](https://tigerconnect.readme.io/v2) for full details.
+TigerConnect iOS SDK can be installed directly into your application by importing a framework or via CocoaPods. Quick installation instructions are provided below for reference, but please refer to the [TigerConnect Documentation](https://developer.tigertext.com/) for full details.
 
 ### Requirements
 
