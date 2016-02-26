@@ -52,27 +52,29 @@ If you install on iOS9 you need to this to your plist file:
 
 <key>NSAppTransportSecurity</key>
 <dict>
-<key>NSExceptionDomains</key>
-<dict>
-<key>cloudfront.net</key>
-<dict>
-<key>NSIncludesSubdomains</key>
-<true/>
-<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-<true/>
-<key>NSTemporaryExceptionMinimumTLSVersion</key>
-<string>1.0</string>
-<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
-<false/>
-</dict>
-<key>tigertext.me</key>
-<dict>
-<key>NSExceptionAllowsInsecureHTTPLoads</key>
-<false/>
-<key>NSIncludesSubdomains</key>
-<true/>
-</dict>
-</dict>
+  <key>NSAllowsArbitraryLoads</key>
+  <true/>
+  <key>NSExceptionDomains</key>
+  <dict>
+    <key>cloudfront.net</key>
+    <dict>
+      <key>NSIncludesSubdomains</key>
+      <true/>
+      <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+      <true/>
+      <key>NSTemporaryExceptionMinimumTLSVersion</key>
+      <string>1.0</string>
+      <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+      <false/>
+    </dict>
+    <key>tigertext.me</key>
+    <dict>
+      <key>NSExceptionAllowsInsecureHTTPLoads</key>
+      <false/>
+      <key>NSIncludesSubdomains</key>
+      <true/>
+    </dict>
+  </dict>
 </dict>
 
 ## Swift
