@@ -102,13 +102,13 @@
 @property (nonatomic, retain) NSString * dndText;
 
 /**
- *  Do not disturb - Autoforwarding state
+ *  Original Autoforwarding receiver token set by the roster target user in a P2P conversation.
  */
-@property (nonatomic, retain) NSNumber * autoforward;
+@property (nonatomic, retain) NSString * autoforwardReceiver;
 
 /**
- *  Do not disturb - Autoforward recipient (User) token
+ *  Convenience getter for autoforwardReceiver is non-empty, when autoforward is enabled.
  */
-@property (nonatomic, retain) TTUser * autoforwardRecipient;
+@property (readonly) BOOL autoforward;
 
 @end

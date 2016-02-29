@@ -1135,6 +1135,16 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (TTRosterEntry *)rosterEntryForUser:(TTUser *)user;
 
 /**
+ *  Retrieve Roster Entry with user, this could be use to access the conversation screen from the user's contacts
+ *
+ *  @param user TTUser object
+ *  @param organizationToken An organization token
+ *
+ *  @return An 'TTRosterEntry' object
+ */
+- (TTRosterEntry *)rosterEntryForUser:(TTUser *)user organizationToken:(NSString *)organizationToken;
+
+/**
  *  Retrieve Roster Entry for a set of user token, this could be use to access the conversation screen from the user's groups
  *
  *  @param user TTUser object
@@ -1996,7 +2006,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
 
 ///-------------------------------------------------------
-/// @name Settings
+/// @name Do Not Disturb Settings
 ///-------------------------------------------------------
 
 /**
@@ -2013,58 +2023,76 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (BOOL)doNotDisturb;
 
 /**
- *  Use this method to get user's autoforward value for Organization currently used.
- *
- */
-- (BOOL)isAutoforwardOnforCurrentOrganization;
-
-
-/**
- *  Use this method to get user's autoforward value for Organization currently used.
- *
- */
-- (NSString *)autoforwardRecipientNameforCurrentOrganization;
-
-
-/**
  *  Use this method to update your user's dnd auto reply response.
  *
  *  @param autoReplyResponse auto reply message that will be sent when the user is on dnd. If not set, the reply message will default to 'Do not disturb'
  */
 - (void)setDoNotDisturbAutoReply:(NSString *)autoReply;
 
+
+///-------------------------------------------------------
+/// @name Auto-Forwrard Settings
+///-------------------------------------------------------
+
 /**
- *  Use this method to check if autoforwarding is enabled for the current org.
+ *  Use this method to get user's autoforward value for Organization currently used.
  *
  */
-- (BOOL)autoforwardEnabledForOrganizationToken:(NSString *)orgToken;
+- (BOOL)isAutoforwardOnforCurrentOrganization;
+
+/**
+ *  Use this method to get user's autoforward recipient setting for current Organization.
+ *
+ */
+- (TTUser *)autoforwardRecipientForCurrentOrganization;
+
+/**
+ *  Use this method to check if autoforwarding is enabled for the current org.
+ *  @param organizationToken The organization token for which to check for auto-forward feature.
+ */
+- (BOOL)autoforwardEnabledForOrganizationToken:(NSString *)organizationToken;
 
 /**
  *  Use this method to update your user's autoforwardRecipientToken.
- *
  *  @param recipientToken User Token for auto-forward message recipient.
- *  @param organizationToken The organization token for which to configure auto-forwarding.
+ *  @param organizationToken The organization token for which to configure auto-forward receipient.
  */
 - (void)setAutoforwardRecipientToken:(NSString *)recipientToken organizationToken:(NSString *)organizationToken;
 
 /**
  *  Use this method to turn off autoforwarding for the current user.
- *
- *  @param organizationToken The organization token for which to unset auto-forwarding.
+ *  @param organizationToken The organization token for which to unset auto-forward recipient.
  */
 - (void)unsetAutoforwardForOrganizationToken:(NSString *)organizationToken;
 
 /**
- *  Use this method to get user's autoforwarding Recipient's user Token.
- *
+ *  Use this method to get user's autoforward receiver Token.
+ *  @param organizationToken The organization token for which to unset auto-forwarding.
  */
-- (NSString *)autoforwardRecipientTokenForOrganizationToken:(NSString *)orgToken;
+- (NSString *)autoforwardReceiverTokenForOrganizationToken:(NSString *)organizationToken;
 
 /**
  *  Use this method to get user's autoforwarding Setters (token).
- *
+ *  @param organizationToken The organization token for which to unset auto-forwarding.
  */
-- (NSArray *)autoforwardSetterTokensForOrganizationToken:(NSString *)orgToken;
+- (NSArray *)autoforwardSetterTokensForOrganizationToken:(NSString *)organizationToken;
+
+/**
+ *  Use this method to get autoforwarding final recipient for a Roster Entry. The method is asynchronous,
+ *  but will will fire the completion block very quickly in the event that a network request isn't needed.
+ *  @param rosterEntry The roster entry from which to resolve the final recipient.
+ */
+- (void)downloadAutoforwardFinalRecipientForRosterEntry:(TTRosterEntry *)rosterEntry
+                                             completion:(void (^)(TTUser *user))completion;
+
+/**
+ *  Use this method to get user's autoforwarding final recipient. The method is asynchronous,
+ *  but will will fire the completion block very quickly in the event that a network request isn't needed.
+ *  @param organizationToken The organization token for which to unset auto-forwarding.
+ */
+- (void)downloadAutoforwardFinalRecipientForUser:(TTUser *)user
+                               organizationToken:(NSString *)organizationToken
+                                      completion:(void (^)(TTUser *user))completion;
 
 /**
  *  User's title, i.e 'Chief Operations Officer' for a given organization
@@ -2073,7 +2101,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (NSString *)userTitleForOrganizationToken:(NSString *)organizationToken;
 
 /**
- *  set User's title for a given organization
+ *  Set User's title for a given organization
  *  @param userTitle User title.
  *  @param organizationToken Organization token.
  */
@@ -2086,7 +2114,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (NSString *)userDepartmentForOrganizationToken:(NSString *)organizationToken;
 
 /**
- *  set User's department for a given organization
+ *  Set User's department for a given organization
  *  @param userTitle User title.
  *  @param organizationToken Organization token.
  */

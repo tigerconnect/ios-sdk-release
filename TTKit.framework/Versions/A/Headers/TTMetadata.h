@@ -2,8 +2,8 @@
 //  TTMetadata.h
 //  TTKit
 //
-//  Created by Oren Zitoun on 6/10/14.
-//  Copyright (c) 2014 TigerText, Inc. All rights reserved.
+//  Created by Oren Zitoun on 1/13/16.
+//  Copyright © 2016 TigerText, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,34 +11,35 @@
 
 @class TTMessage, TTParty;
 
-/**
- *  TTMetadata enables developers the ability to add customized values to specific model objects (Mainly a TTParty, TTGroup, TTUser and TTMessage) by which objects can later be filtered and searched.
- */
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TTMetadata : NSManagedObject
 
 /**
  *  Key of the stored metadata value.
  */
-@property (nonatomic, retain) NSString * key;
+@property (nullable, nonatomic, retain) NSString *key;
 
 /**
- *  Unused for now.
+ *  String to be used as mimeType.
  */
-@property (nonatomic, retain) NSString * type;
+@property (nullable, nonatomic, retain) NSString *type;
 
 /**
  *  Metadata value.
  */
-@property (nonatomic, retain) NSString * value;
+@property (nullable, nonatomic, retain) id value;
 
 /**
  *  TTParty to which this TTMetadata instance is linked.
  */
-@property (nonatomic, retain) TTParty *party;
+@property (nullable, nonatomic, retain) TTMessage *message;
 
 /**
  *  TTMessage to which this TTMetadata instance is linked.
  */
-@property (nonatomic, retain) TTMessage *message;
+@property (nullable, nonatomic, retain) TTParty *party;
 
 @end
+
+NS_ASSUME_NONNULL_END

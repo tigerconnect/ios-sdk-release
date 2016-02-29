@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 @property (nonatomic, retain) NSNumber * forward;
 
 /**
- *  Int16 value, mapped to TTAutoforward enumeration.
+ *  Int16 value, mapped to TTAutoforwardType enumeration.
  */
 @property (nonatomic, retain) NSNumber * autoforward;
 
