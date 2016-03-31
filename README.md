@@ -49,34 +49,34 @@ These instructions will setup your local CocoaPods environment and import the Ti
 ## iOS 9
 
 If you install on iOS9 you need to this to your plist file:
-
+```xml
 <key>NSAppTransportSecurity</key>
 <dict>
-  <key>NSAllowsArbitraryLoads</key>
-  <true/>
-  <key>NSExceptionDomains</key>
-  <dict>
-    <key>cloudfront.net</key>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+    <key>NSExceptionDomains</key>
     <dict>
-      <key>NSIncludesSubdomains</key>
-      <true/>
-      <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-      <true/>
-      <key>NSTemporaryExceptionMinimumTLSVersion</key>
-      <string>1.0</string>
-      <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
-      <false/>
+        <key>cloudfront.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>1.0</string>
+            <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>tigertext.me</key>
+        <dict>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <false/>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+        </dict>
     </dict>
-    <key>tigertext.me</key>
-    <dict>
-      <key>NSExceptionAllowsInsecureHTTPLoads</key>
-      <false/>
-      <key>NSIncludesSubdomains</key>
-      <true/>
-    </dict>
-  </dict>
 </dict>
-
+```
 ## Swift
 
 TTKit is an ObjC library, if you wish to run it in a swift project you will need to create a bridging header and add it to your build settings under Swift Compiler - Code Generation.  Please add <TTKit/TTKit.h> to the bridging header.  More information can be found [here on the Apple Developer Site](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)

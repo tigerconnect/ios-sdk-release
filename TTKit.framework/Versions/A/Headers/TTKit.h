@@ -25,6 +25,7 @@
 #import "TTUploadData.h"
 #import "TTOrganization.h"
 #import "TTImageView.h"
+#import "TTMessageRequest.h"
 
 // Notifications
 FOUNDATION_EXPORT NSString *const kTTKitUnreadMessagesCountChangedNotification;
@@ -579,7 +580,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *  @param failure Failure block, provides an NSError with a description of the issue.
  */
 - (void)resetPassword:(NSString *)email
-              success:(void (^)(void))success
+              success:(void (^)(NSString *successReply))success
               failure:(void (^)(NSError *))failure;
 
 /**
@@ -1221,12 +1222,31 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *  @param success Success block.
  *  @param failure Failure block, provides an NSError with a description of the issue.
  *
- *  @return An 'TTRosterEntry' object
+ *  @discussion if a message is marked with TTMessagePriorityHigh, same priority will be conserved when forwarding. Otherwise TTMessagePriorityNormal will be used.
  *
  */
 
  - (void)forwardMessage:(NSString *)messageToken
              recipient:(NSString *)recipientToken
+               success:(void(^)(void))success
+               failure:(void (^)(NSError * error))failure;
+
+/**
+ *  Forward a message to a user.
+ *
+ *  @param messageToken message token.
+ *  @param recipientToken user or group token.
+ *  @param priorityMessage priority type for this message.
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ *
+ *  @discussion priority cannot be downgraded, meaning that if a message is marked with TTMessagePriorityHigh, same priority will be conserved even if TTMessagePriorityNormal will be used.
+ *
+ */
+
+- (void)forwardMessage:(NSString *)messageToken
+             recipient:(NSString *)recipientToken
+       priorityMessage:(TTMessagePriority)priorityMessage
                success:(void(^)(void))success
                failure:(void (^)(NSError * error))failure;
 
@@ -1243,6 +1263,15 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
                toUsers:(NSArray *)users
                success:(void(^)(TTGroup *group))success
                failure:(void (^)(NSError * error))failure;
+
+/**
+ *  Send a message using TTMessageRequest object.
+ *
+ *  @param messageRequest TTMessageRequest object.
+ *  @param completion The completion block, will return the new created message or an NSError.
+ */
+- (void)sendMessageWithRequest:(TTMessageRequest *)messageRequest
+                    completion:(void(^)(TTMessage *message, NSError *error))completion;
 
 /**
  Send message with attachment local file path, should be used for uploading message with large attachments like videos.
@@ -1263,7 +1292,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
      attachmentPath:(NSString *)attachmentPath
  attachmentMimeType:(NSString *)aMimeType
             success:(void(^)(TTMessage *newMessage))success
-            failure:(void (^)(NSError * error))failure;
+            failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message with attachment data.
@@ -1285,7 +1314,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
      attachmentData:(NSData *)attachmentData
  attachmentMimeType:(NSString *)aMimeType
             success:(void(^)(TTMessage *newMessage))success
-            failure:(void (^)(NSError * error))failure;
+            failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a collection of users to create a new conversation
@@ -1302,7 +1331,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
                   lifetime:(int)aLifetime
               deleteOnRead:(BOOL)dorBool
                    success:(void(^)(TTRosterEntry *rosterEntry ,TTMessage *newMessage))success
-                   failure:(void (^)(NSError * error))failure;
+                   failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a collection of users to create a new conversation
@@ -1314,6 +1343,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  @param message message text.
  @param lifetime message lifetime (minutes).
  @param deleteOnRead message deletes after recipient has read it.
+ @param attachmentData attachment data
+ @param attachmentMimeType attachment mimeType.
  @param success success return block.
  @param failure failure return block.
  */
@@ -1326,7 +1357,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
             attachmentData:(NSData *)attachmentData
         attachmentMimeType:(NSString *)mimeType
                    success:(void(^)(TTRosterEntry *rosterEntry ,TTMessage *newMessage))success
-                   failure:(void (^)(NSError * error))failure;
+                   failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a collection of users to create a new conversation
@@ -1347,8 +1378,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
             attachmentPath:(NSString *)attachmentPath
         attachmentMimeType:(NSString *)mimeType
                    success:(void(^)(TTRosterEntry *rosterEntry ,TTMessage *newMessage))success
-                   failure:(void (^)(NSError * error))failure;
-
+                   failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a collection of users to create a new conversation
@@ -1362,7 +1392,6 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  @param success success return block.
  @param failure failure return block.
  */
-
 - (void)sendMessageToUsers:(NSArray *)users
                    message:(NSString *)message
                   lifetime:(int)aLifetime
@@ -1370,7 +1399,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
             attachmentData:(NSData *)attachmentData
         attachmentMimeType:(NSString *)mimeType
                    success:(void(^)(TTRosterEntry *rosterEntry ,TTMessage *newMessage))success
-                   failure:(void (^)(NSError * error))failure;
+                   failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message.
@@ -1388,15 +1417,13 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
            lifetime:(int)aLifetime
        deleteOnRead:(BOOL)dorBool
             success:(void(^)(TTMessage *newMessage))success
-            failure:(void (^)(NSError * error))failure;
-
+            failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a user to create a new converation
  
  @param user TTUser object.
  @param message message text.
- @param rosterEntry the relevant TTRosterObject (conversation) object.
  @param lifetime message lifetime (minutes).
  @param deleteOnRead message deletes after recipient has read it.
  @param success success return block.
@@ -1408,14 +1435,13 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
                  lifetime:(int)aLifetime
              deleteOnRead:(BOOL)dorBool
                   success:(void(^)(TTMessage *newMessage))success
-                  failure:(void (^)(NSError * error))failure;
+                  failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a user to create a new converation
  
  @param user TTUser object.
  @param message message text.
- @param rosterEntry the relevant TTRosterObject (conversation) object.
  @param lifetime message lifetime (minutes).
  @param deleteOnRead message deletes after recipient has read it.
  @param attachmentPath attachment local disk path.
@@ -1431,14 +1457,13 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
            attachmentPath:(NSString *)attachmentPath
        attachmentMimeType:(NSString *)mimeType
                   success:(void(^)(TTMessage *newMessage))success
-                  failure:(void (^)(NSError * error))failure;
+                  failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a user to create a new converation
  
  @param user TTUser object.
  @param message message text.
- @param rosterEntry the relevant TTRosterObject (conversation) object.
  @param lifetime message lifetime (minutes).
  @param deleteOnRead message deletes after recipient has read it.
  @param attachmentData attachment data.
@@ -1454,7 +1479,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
            attachmentData:(NSData *)attachmentData
        attachmentMimeType:(NSString *)mimeType
                   success:(void(^)(TTMessage *newMessage))success
-                  failure:(void (^)(NSError * error))failure;
+                  failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
  Send message to a group to create a new converation
@@ -1464,6 +1489,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  @param lifetime message lifetime (minutes).
  @param deleteOnRead message deletes after recipient has read it.
  @param attachmentData attachment data.
+ @param attachmentPath attachment local disk path.
  @param attachmentMimeType attachment mimeType.
  @param success success return block.
  @param failure failure return block.
@@ -1477,7 +1503,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
             attachmentPath:(NSString *)attachmentPath
         attachmentMimeType:(NSString *)aMimeType
                    success:(void(^)(TTRosterEntry *rosterEntry, TTMessage *newMessage))success
-                   failure:(void (^)(NSError * error))failure;
+                   failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use sendMessageWithRequest:completion: method instead.");
 
 /**
   Retry sending message will try to send the message again (usually used for failed messages)
@@ -1890,6 +1916,13 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *  @return A TTBadgeData object containing unread count for all conversations of a provided TTOrganization.
  */
 - (TTBadgeData *)badgeDataForOrganization:(TTOrganization *)organization;
+
+/**
+ *  Retrieve all TTBadgeData objects for all organizations.
+ *
+ *  @return An NSArray of TTBadgeData objects containing unread count for all conversations of a provided TTOrganization.
+ */
+- (NSArray *)badgeDataForAllOrganizations;
 
 /**
  *  Retrieve TTBadgeData object for all conversations of a provided organization token.

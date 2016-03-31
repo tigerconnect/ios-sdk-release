@@ -31,12 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) id value;
 
 /**
- *  TTParty to which this TTMetadata instance is linked.
+ *  TTMessage to which this TTMetadata instance is linked.
  */
 @property (nullable, nonatomic, retain) TTMessage *message;
 
 /**
- *  TTMessage to which this TTMetadata instance is linked.
+ *  TTParty to which this TTMetadata instance is linked.
  */
 @property (nullable, nonatomic, retain) TTParty *party;
 

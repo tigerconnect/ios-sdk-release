@@ -26,7 +26,9 @@
  *
  */
 
-- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage forDisplaySize:(CGSize)displaySize contentMode:(UIViewContentMode)contentMode;
+- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage
+               forDisplaySize:(CGSize)displaySize
+                  contentMode:(UIViewContentMode)contentMode;
 
 
 /**
@@ -38,7 +40,11 @@
  *  @param borderColor view border color.
  *
  */
-- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage forDisplaySize:(CGSize)displaySize contentMode:(UIViewContentMode)contentMode borderColor:(UIColor *)borderColor;
+- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage
+               forDisplaySize:(CGSize)displaySize
+                  contentMode:(UIViewContentMode)contentMode
+                  borderColor:(UIColor *)borderColor
+                  borderWidth:(CGFloat)borderWidth;
 
 /**
  *  Loads a network image for the given path.
@@ -50,7 +56,12 @@
  *  @param circleCrop  will crop the image to a circle.
  *
  */
-- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage forDisplaySize:(CGSize)displaySize contentMode:(UIViewContentMode)contentMode borderColor:(UIColor *)borderColor circleCrop:(BOOL)circleCrop;
+- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage
+               forDisplaySize:(CGSize)displaySize
+                  contentMode:(UIViewContentMode)contentMode
+                  borderColor:(UIColor *)borderColor
+                  borderWidth:(CGFloat)borderWidth
+                   circleCrop:(BOOL)circleCrop;
 
 /**
  *  Loads a network image for the given path.
@@ -61,7 +72,10 @@
  *  @param circleCrop  will crop the image to a circle.
  *
  */
-- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage forDisplaySize:(CGSize)displaySize contentMode:(UIViewContentMode)contentMode circleCrop:(BOOL)circleCrop;
+- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage
+               forDisplaySize:(CGSize)displaySize
+                  contentMode:(UIViewContentMode)contentMode
+                   circleCrop:(BOOL)circleCrop;
 
 /**
  *  Loads a network image for the given path.
@@ -72,7 +86,10 @@
  *  @param cornerRadius sets the corner radius crop.
  *
  */
-- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage forDisplaySize:(CGSize)displaySize contentMode:(UIViewContentMode)contentMode cornerRadius:(CGFloat)cornerRadius;
+- (void)setPathToNetworkImage:(NSString *)pathToNetworkImage
+               forDisplaySize:(CGSize)displaySize
+                  contentMode:(UIViewContentMode)contentMode
+                 cornerRadius:(CGFloat)cornerRadius;
 
 /**
  *  Loads a local image for the given file path.
@@ -83,7 +100,10 @@
  *  @param circleCrop  will crop the image to a circle.
  *
  */
-- (void)setLocalPathToImage:(NSString *)pathToImage forDisplaySize:(CGSize)displaySize contentMode:(UIViewContentMode)contentMode circleCrop:(BOOL)circleCrop;
+- (void)setLocalPathToImage:(NSString *)pathToImage
+             forDisplaySize:(CGSize)displaySize
+                contentMode:(UIViewContentMode)contentMode
+                 circleCrop:(BOOL)circleCrop;
 
 /**
  *  Loads a local image for the given file name.

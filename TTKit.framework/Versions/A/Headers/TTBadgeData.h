@@ -19,9 +19,14 @@
 @property (nonatomic, strong) NSString *token;
 
 /**
- *  Unread messages count.
+ *  Total unread messages count.
  */
 @property (nonatomic, assign) NSUInteger unreadCount;
+
+/**
+ *  Priority messages only unread count.
+ */
+@property (nonatomic, assign) NSUInteger priorityMessagesUnreadCount;
 
 /**
  *  A conversation hash to which this instance relates. Will be nil if instance relates to an organization.

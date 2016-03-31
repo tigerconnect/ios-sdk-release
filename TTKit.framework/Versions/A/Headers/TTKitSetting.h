@@ -24,5 +24,6 @@ typedef NS_ENUM(NSInteger, TTKitSetting)
     TTKitSettingAllowDNDAutoforward,
     TTKitSettingDNDAutoforwardReceiver,
     TTKitSettingDNDAutoforwardSetters,
+    TTKitSettingPriorityMessaging,
     
 };
