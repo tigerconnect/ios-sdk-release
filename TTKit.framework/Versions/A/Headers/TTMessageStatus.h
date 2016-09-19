@@ -9,15 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TTMessage, TTUser;
+@class TTMessage, TTUser, TTRole;
 
 @interface TTMessageStatus : NSManagedObject
 
-@property (nonatomic, retain) NSString * messageToken;
-@property (nonatomic, retain) NSString * status;
-@property (nonatomic, retain) NSDate * timestamp;
-@property (nonatomic, retain) NSString * userToken;
+@property (nonatomic, retain) NSString *messageToken;
+@property (nonatomic, retain) NSString *status;
+@property (nonatomic, retain) NSDate *timestamp;
+@property (nonatomic, retain) NSString *userToken;
 @property (nonatomic, retain) TTMessage *message;
 @property (nonatomic, retain) TTUser *user;
+@property (nonatomic, retain) TTRole *role;
 
 @end

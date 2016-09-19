@@ -13,12 +13,18 @@
  *  A TTMessageRequest object represents a new outgoing message to be sent using TTKit. TTMessageRequest encapsulates the recipient, message body, attachment, and metadata. To send a message in TTKit, pass a TTMessageRequest object to
  *  TTKit sendMessageWithRequest:completion: API.
  */
+
 @interface TTMessageRequest : NSObject
 
 /**
  *  The message recipient token, required.
  */
 @property (nonatomic, readonly) NSString *recipientToken;
+
+/**
+ *  If set the message will be sent from a role, local user must opt-in to a role before sending a message as the role.
+ */
+@property (nonatomic, readonly) NSString *roleSenderToken;
 
 /**
  *  Message text.
@@ -71,6 +77,13 @@
  *  @param recipientToken The message recipient token.
  */
 - (instancetype)initWithRecipientToken:(NSString *)recipientToken;
+
+/**
+ *  Initialize with recipient token.
+ *  @param recipientToken The message recipient token.
+ *  @param role The Role you wish to send the message from.
+ */
+- (instancetype)initWithRecipientToken:(NSString *)recipientToken sendAsRole:(TTRole *)role;
 
 /**
  *  Set message attachment with data.

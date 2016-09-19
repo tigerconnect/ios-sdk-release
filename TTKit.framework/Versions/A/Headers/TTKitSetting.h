@@ -25,5 +25,8 @@ typedef NS_ENUM(NSInteger, TTKitSetting)
     TTKitSettingDNDAutoforwardReceiver,
     TTKitSettingDNDAutoforwardSetters,
     TTKitSettingPriorityMessaging,
-    
+    TTKitSettingSessionExpired,
+    TTKitSettingDisableChangePassword,
+    TTKitSettingDisableAddInbox,
+    TTKitSettingRoleService
 };

@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class TTGroup, TTMessage, TTMessageStatus;
+@class TTGroup, TTMessage, TTMessageStatus, TTRole, TTRoleGroup;
 
 @interface TTUser : TTParty
 
@@ -105,6 +105,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  All rosters autoforwarding to this user (inverse relationship for rosterEntry.autoforwardRecipient).
  */
 @property (nonatomic, retain) NSSet *autoforwardRosters;
+
+/**
+ *  All rosters assumed by the user.
+ */
+@property (nullable, nonatomic, retain) NSSet<TTRole *> *roles;
+
+/**
+ *  Inverse relashionship with TTRoleGroup target.
+ */
+@property (nullable, nonatomic, retain) NSSet<TTRoleGroup *> *roleGroups;
 
 @end
 

@@ -11,6 +11,7 @@
 #import "TTUser.h"
 #import "TTParty.h"
 #import "TTGroup.h"
+#import "TTRoleGroup.h"
 #import "TTMessage.h"
 #import "TTRosterEntry.h"
 #import "TTContact.h"
@@ -26,6 +27,8 @@
 #import "TTOrganization.h"
 #import "TTImageView.h"
 #import "TTMessageRequest.h"
+#import "TTRole.h"
+#import "TTTag.h"
 
 // Notifications
 FOUNDATION_EXPORT NSString *const kTTKitUnreadMessagesCountChangedNotification;
@@ -56,9 +59,11 @@ FOUNDATION_EXPORT NSString *const kTTKitDidLogoutNotification;
 FOUNDATION_EXPORT NSString *const kTTKitCurrentOrganizationNameKey;
 FOUNDATION_EXPORT NSString *const kTTKitCurrentOrganizationKey;
 FOUNDATION_EXPORT NSString *const kTTKitDidReceiveRemoteLogoutNotification;
+FOUNDATION_EXPORT NSString *const kTTKitSessionExpiredUpdateNotification;
 FOUNDATION_EXPORT NSString *const kTTKitDidLoginNotification;
 FOUNDATION_EXPORT NSString *const kTTKitWillLogoutNotification;
 FOUNDATION_EXPORT NSString *const kTTKitUserInfoErrorKey;
+FOUNDATION_EXPORT NSString *const kTTKitOrganizationTokensUserInfoKey;
 FOUNDATION_EXPORT NSString *const kTTKitBackgroundPushUpdateCompleteNotification;
 FOUNDATION_EXPORT NSString *const kTTKitOfflineMessageProcessingDidFinishNotification;
 FOUNDATION_EXPORT NSString *const kTTKitUserValidatedPhoneNumberNotification;
@@ -70,6 +75,7 @@ FOUNDATION_EXPORT NSString *const kTTAPIWaitingForResponseNotification;
 FOUNDATION_EXPORT NSString *const kTTAPIDelayedResponseNotification;
 FOUNDATION_EXPORT NSString *const kTTKitAutoforwardFeatureDisabledNotification;
 FOUNDATION_EXPORT NSString *const kTTKitAutoforwardRecipientTokenChangedNotification;
+FOUNDATION_EXPORT NSString *const kTTKitRoleServiceSettingsChangedNotification;
 FOUNDATION_EXPORT NSString *const kTTAPIRequestTimeoutNotification;
 FOUNDATION_EXPORT NSString *const kTTAPINoResponseErrorNotification;
 FOUNDATION_EXPORT NSString *const kTTAPIRequestCancelledNotification;
@@ -95,6 +101,8 @@ FOUNDATION_EXPORT NSString *const kTTkitContactsManagerValueKey;
 
 FOUNDATION_EXPORT NSString *const kTTKitPersonalOrganizationDefaultToken;
 FOUNDATION_EXPORT NSString *const kTTKITUserAPNDeviceTokenKey;
+
+FOUNDATION_EXPORT NSString *const kTTKitURLResponseKey;
 
 /**
  *  TTKitEnvironment types
@@ -130,7 +138,14 @@ typedef NS_ENUM(NSUInteger, TTKitError) {
      *
      */
     TTErrorParameterNotSupported,
-
+    /**
+     *
+     */
+    TTErrorExpiredSession,
+    /**
+     *
+     */
+    TTErrorExceededAllowedCapacity,
 };
 
 /**
@@ -921,6 +936,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *  Adds local user to a group
  *
  *  @param group A TTGroup object.
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
  */
 - (void)joinGroup:(TTGroup *)group
           success:(void (^)(void))success
@@ -932,7 +949,20 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *  @param group A TTGroup object.
  *  @param users An NSArray of TTUser objects.
  */
-- (void)removeUsersFromGroup:(TTGroup *)group users:(NSArray *)users;
+- (void)removeUsersFromGroup:(TTGroup *)group users:(NSArray *)users DEPRECATED_MSG_ATTRIBUTE("Use removeUsersFromGroup:users:success:failure:");
+
+/**
+ *  Remove an array of TTUsers from a TTGroup.
+ *
+ *  @param group A TTGroup object.
+ *  @param users An NSArray of TTUser objects.
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ */
+- (void)removeUsersFromGroup:(TTGroup *)group
+                       users:(NSArray *)users
+                     success:(void (^)(TTGroup *group))success
+                     failure:(void (^)(NSError * error))failure;
 
 /**
  *  Remove a TTUser from a TTGroup.
@@ -1165,6 +1195,43 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (TTRosterEntry *)rosterEntryForGroup:(TTGroup *)group;
 
 /**
+ *  Retrieve Roster Entry for a conversation between a role and the local user.
+ *
+ *  @param roleRecipient The conversation role recipient.
+ *
+ *  @param organizationToken An organization token, will default to current organization if not provided.
+ *
+ *  @return An 'TTRosterEntry' object.
+ */
+- (TTRosterEntry *)rosterEntryForRoleRecipient:(TTRole *)roleRecipient organizationToken:(NSString *)organizationToken;
+
+/**
+ *  Retrieve Roster Entry for a conversation between two roles.
+ *
+ *  @param roleSender The conversation role sender or the role who created this conversation.
+ *
+ *  @param roleRecipient The conversation role recipient.
+ *
+ *  @param organizationToken An organization token, will default to current organization if not provided.
+ *
+ *  @return An 'TTRosterEntry' object.
+ */
+- (TTRosterEntry *)rosterEntryForRoleSender:(TTRole *)roleSender roleRecipient:(TTRole *)roleRecipient organizationToken:(NSString *)organizationToken;
+
+/**
+ *  Retrieve Roster Entry for a conversation a role (sender) and a user.
+ *
+ *  @param roleSender The conversation role sender or the role who created this conversation.
+ *
+ *  @param userRecipient The conversation user recipient.
+ *
+ *  @param organizationToken An organization token, will default to current organization if not provided.
+ *
+ *  @return An 'TTRosterEntry' object.
+ */
+- (TTRosterEntry *)rosterEntryForRoleSender:(TTRole *)roleSender userRecipient:(TTUser *)userRecipient organizationToken:(NSString *)organizationToken;
+
+/**
  *  Determine whether the roster entry is TigerPage
  *
  *  @param A TTRosterEntry to compare
@@ -1226,7 +1293,26 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *
  */
 
+- (void)forwardMessage:(NSString *)messageToken
+             recipient:(NSString *)recipientToken
+               success:(void(^)(void))success
+               failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use forwardMessage:asRole:recipient:success:failure:");
+
+/**
+ *  Forward a message to a user.
+ *
+ *  @param messageToken message token.
+ *  @param role The TTRole object you wish to send as
+ *  @param recipientToken user or group token.
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ *
+ *  @discussion if a message is marked with TTMessagePriorityHigh, same priority will be conserved when forwarding. Otherwise TTMessagePriorityNormal will be used.
+ *
+ */
+
  - (void)forwardMessage:(NSString *)messageToken
+                 asRole:(TTRole *)role
              recipient:(NSString *)recipientToken
                success:(void(^)(void))success
                failure:(void (^)(NSError * error))failure;
@@ -1248,7 +1334,44 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
              recipient:(NSString *)recipientToken
        priorityMessage:(TTMessagePriority)priorityMessage
                success:(void(^)(void))success
+               failure:(void (^)(NSError * error))failure
+DEPRECATED_MSG_ATTRIBUTE("Use forwardMessage:asRole:recipient:priorityMessage:success:failure:");
+
+/**
+ *  Forward a message to a user.
+ *
+ *  @param messageToken message token.
+ *  @param role The TTRole object you wish to send as
+ *  @param recipientToken user or group token.
+ *  @param priorityMessage priority type for this message.
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ *
+ *  @discussion priority cannot be downgraded, meaning that if a message is marked with TTMessagePriorityHigh, same priority will be conserved even if TTMessagePriorityNormal will be used.
+ *
+ */
+
+- (void)forwardMessage:(NSString *)messageToken
+                asRole:(TTRole *)role
+             recipient:(NSString *)recipientToken
+       priorityMessage:(TTMessagePriority)priorityMessage
+               success:(void(^)(void))success
                failure:(void (^)(NSError * error))failure;
+
+/**
+ *  Forward a message to group of users, creating a group in the process.
+ *
+ *  @param messageToken message token.
+ *  @param role The TTRole object you wish to send as
+ *  @param users array of users to send to
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ */
+
+- (void)forwardMessage:(NSString *)messageToken
+               toUsers:(NSArray *)users
+               success:(void(^)(TTGroup *group))success
+               failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use forwardMessage:asRole:toUsers:success:failure:");
 
 /**
  *  Forward a message to group of users, creating a group in the process.
@@ -1260,6 +1383,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  */
 
 - (void)forwardMessage:(NSString *)messageToken
+                asRole:(TTRole *)role
                toUsers:(NSArray *)users
                success:(void(^)(TTGroup *group))success
                failure:(void (^)(NSError * error))failure;
@@ -1664,7 +1788,24 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (id)addMetadataForUser:(TTUser *)user
                   params:(NSDictionary *)params
                  success:(void (^)(void))success
+                 failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use addMetadataForUser:organizationToken:params:success:failure:");
+
+/**
+ Adding Metadata to user
+ 
+ @param user TTUser object.
+ @param organizationToken The organization token you wish to add Metadata, Must be valid and not empty or nil.
+ @param params metadata keys and values you wish to add to the user (i.e key1 : value1, key2 : value2).
+ @param success Success block.
+ @param failure Failure block, provides an NSError with a description of the issue.
+ 
+ */
+- (id)addMetadataForUser:(TTUser *)user
+       organizationToken:(NSString *)organizationToken
+                  params:(NSDictionary *)params
+                 success:(void (^)(void))success
                  failure:(void (^)(NSError * error))failure;
+
 
 /**
  Setting Metadata to user
@@ -1678,6 +1819,22 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (id)setMetadataForUser:(TTUser *)user
                   params:(NSDictionary *)params
                  success:(void (^)(void))success
+                 failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use setMetadataForUser:organizationToken:params:success:failure:");
+
+/**
+ Setting Metadata to user
+ 
+ @param user TTUser object.
+ @param organizationToken The organization token you wish to set Metadata, Must be valid and not empty or nil.
+ @param params metadata keys and values you wish to set as the user's metadata (i.e key1 : value1, key2 : value2). This will override previous values
+ @param success Success block.
+ @param failure Failure block, provides an NSError with a description of the issue.
+ 
+ */
+- (id)setMetadataForUser:(TTUser *)user
+       organizationToken:(NSString *)organizationToken
+                  params:(NSDictionary *)params
+                 success:(void (^)(void))success
                  failure:(void (^)(NSError * error))failure;
 
 /**
@@ -1689,6 +1846,20 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  
  */
 - (id)getMetadataForUser:(TTUser *)user
+                 success:(void (^)(NSArray *results))success
+                 failure:(void (^)(NSError * error))failure DEPRECATED_MSG_ATTRIBUTE("Use getMetadataForUser:organizationToken:success:failure:");
+
+/**
+ Getting Metadata of user
+ 
+ @param user TTUser object.
+ @param organizationToken The organization token you wish to get Metadata, Must be valid and not empty or nil.
+ @param success Success block with metadata results.
+ @param failure Failure block, provides an NSError with a description of the issue.
+ 
+ */
+- (id)getMetadataForUser:(TTUser *)user
+       organizationToken:(NSString *)organizationToken
                  success:(void (^)(NSArray *results))success
                  failure:(void (^)(NSError * error))failure;
 
@@ -1715,6 +1886,145 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (id)getMetadataForRosterEntry:(TTRosterEntry *)roster
                         success:(void (^)(NSArray *results))success
                         failure:(void (^)(NSError * error))failure;
+
+
+///-------------------------------------------------------
+/// @name Roles
+///-------------------------------------------------------
+
+/**
+ Saved roles fetchController will return all TTRole objects with saved = YES, sorted by name.
+ 
+ @warning Must be called on the main thread only.
+ 
+ @param organizationToken The organization token you wish to fetch from, will default to current organization if not provided.
+
+ @param tagTokens Filter results with an Array of TTTag tokens.
+
+ @param delegate NSFetchedResultsControllerDelegate.
+ 
+ @return An 'NSFetchedResultsController' Object.
+ 
+ */
+- (NSFetchedResultsController *)savedRolesFetchedResultsControllerWithOrganizationToken:(NSString *)organizationToken tagTokens:(NSArray *)tagTokens delegate:(id)delegate;
+
+/**
+ *  Fetch/refresh the complete list of the user's saved roles.
+ *
+ *  @param organizationToken The organization token, will default to current organization token.
+ *
+ *  @param completion Called upon query's completion.
+ */
+- (void)savedRolesForOrganizationToken:(NSString *)organizationToken completion:(void (^)(NSArray *savedRoles, BOOL success, NSError *error))completion;
+
+/**
+ *  Update Role saved property, use this to bookmark a role to the list of your saved (favorite) roles.
+ *
+ *  @param role          The TTRole objects you wish to update
+ *
+ *  @param completion Called upon query's completion.
+ */
+- (void)updateSaveForRole:(TTRole *)role save:(BOOL)save completion:(void (^)(BOOL success, NSError *error))completion;
+
+/**
+ *  Filter Saved TTRole object with search string.
+ *
+ *  Returns an NSArray of TTRole objects which passes one of the following string comparisons:
+ *
+ *  1. Its displayName property contains the search string.
+ *
+ *  Note that all of the above are case and diacritic insensitive.
+ *
+ *  @param searchString          The search term (NSString).
+ *  @param organizationToken     The organization token you wish to perform the search, will default to current organization if not provided.
+ *  @param completionBlock Called upon query's completion. The rosterEntries NSArray contains the resulting TTRosterEntry objects, and will be empty if query had no results.
+ */
+- (void)searchSavedRoles:(NSString *)searchString
+       organizationToken:(NSString *)organizationToken
+                 success:(void (^)(NSArray *results))completionBlock;
+
+/**
+ *  Search Roles in an organization.
+ *
+ *  Returns an NSArray of TTRole objects which passes one of the following string comparisons:
+ *
+ *  1. Its displayName property contains the search string.
+ * *
+ *  @param searchString          The search term (NSString).
+ *  @param organizationToken     The organization token you wish to perform the search, will default to current organization if not provided.
+ *  @param filterTagTokens       An Array of TTTag tokens (NSString) you wish to filter by.
+ *  @param continuationToken     Pass in a continuation token to paginate results.
+ *  @param completionBlock Block which should handle the returned TTRole array. If no role is found, returned array will be empty. The resultMetadata will contain some extra information about the search results such as
+ *  the total number of possible results and pagniation data
+ */
+- (id)searchRoles:(NSString *)searchTerm
+  filterTagTokens:(NSArray *)tagTokens
+organizationToken:(NSString *)organizationToken
+continuationToken:(NSString *)continuationToken
+          success:(void(^)(NSArray *roles, NSDictionary *resultMetadata))success
+          failure:(void (^)(NSError * error))failure;
+
+
+/**
+ *  Retrieve a role for the provided token.
+ *
+ *  @param token A role token.
+ *
+ *  @return A TTRole object with the provided token.
+ */
+- (TTRole *)roleWithToken:(NSString *)token;
+
+
+/**
+ *  Opt in local user to a role.
+ *
+ *  @param role The role you wish to Opt in to.
+ *  @param success Success block with updated role.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ *  @return A TTRole object with the provided token.
+ */
+- (id)optInToRole:(TTRole *)role
+          success:(void (^)(TTRole *))success
+          failure:(void (^)(NSError *))failure;
+
+/**
+ *  Opt out local user to a role.
+ *
+ *  @param role The role you wish to Opt out of.
+ *  @param newUser optional new user to opt in after the local user is remove from the role.
+ *  @param success Success block with updated role.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ *  @return A TTRole object with the provided token.
+ */
+- (id)optOutOfRole:(TTRole *)role
+         optInUser:(TTUser *)newUser
+          success:(void (^)(TTRole *))success
+          failure:(void (^)(NSError *))failure;
+
+
+/**
+ *  Leave group as a role.
+ *
+ *  @param role The role you wish to remove from the group.
+ *  @param group The group you wish to update.
+ *  @param success Success block with updated role.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ */
+- (void)removeRoleFromGroup:(TTRole *)role
+                      group:(TTGroup *)group
+                    success:(void (^)(void))success
+                    failure:(void (^)(NSError *))failure;
+
+/**
+ *  Fetch/refresh the complete list of tags.
+ *
+ *  @param organizationToken The organization token, will default to current organization token.
+ *
+ *  @param completion Called upon query's completion.
+ */
+- (void)tagsForOrganizationToken:(NSString *)organizationToken
+                         success:(void (^)(NSArray *tags))success
+                         failure:(void (^)(NSError *))failure;
 
 ///-------------------------------------------------------
 /// @name Handling Message Attachment
@@ -2056,6 +2366,13 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 - (BOOL)doNotDisturb;
 
 /**
+ *  Use this method to check if role service is enabled for any Organization.
+ *
+ *  @param organizationToken The organization token for which to check for role service feature.
+ */
+- (BOOL)isRoleServiceEnabledForOrganization:(NSString *)organizationToken;
+
+/**
  *  Use this method to update your user's dnd auto reply response.
  *
  *  @param autoReplyResponse auto reply message that will be sent when the user is on dnd. If not set, the reply message will default to 'Do not disturb'
@@ -2096,7 +2413,18 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
  *  Use this method to turn off autoforwarding for the current user.
  *  @param organizationToken The organization token for which to unset auto-forward recipient.
  */
-- (void)unsetAutoforwardForOrganizationToken:(NSString *)organizationToken;
+- (void)unsetAutoforwardForOrganizationToken:(NSString *)organizationToken DEPRECATED_MSG_ATTRIBUTE("Use unsetAutoforwardForOrganizationToken:success:failure method instead.");
+
+/**
+ *  Use this method to turn off autoforwarding for the current user.
+ *  @param organizationToken The organization token for which to unset auto-forward recipient.
+ *  @param success        Success block.
+ *  @param failure        Failure block.
+ */
+
+- (void)unsetAutoforwardForOrganizationToken:(NSString *)organizationToken
+                                     success:(void (^)(void))success
+                                     failure:(void (^)(NSError *error))failure;
 
 /**
  *  Use this method to get user's autoforward receiver Token.

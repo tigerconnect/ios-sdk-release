@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class TTMessage, TTUser;
+@class TTMessage, TTUser, TTRole;
 
 /**
  *  TTGroup is a class that represents a TigerText Group or Room.
@@ -70,6 +70,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, retain) TTUser *createdBy;
 
+/**
+ *  Returns list of members who are Roles
+ */
+- (NSSet<TTRole *> *)roleMembers;
+
 - (BOOL)isUserTokenPartOfGroup:(NSString *)token;
 
 - (BOOL)isUserPartOfGroup:(TTUser *)user;
@@ -83,36 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface TTGroup (CoreDataGeneratedAccessors)
 
-/**
- *  Add a TTUser to this TTGroup.
- *
- *  @param value A TTUser object.
- */
-- (void)addMembersObject:(TTUser *)value;
-
-/**
- *  Remove a TTUser from this TTGroup.
- *
- *  @param value A TTUser object.
- */
-- (void)removeMembersObject:(TTUser *)value;
-
-/**
- *  Add multiple TTUsers to this TTGroup.
- *
- *  @param values NSSet containing TTUser objects.
- */
-- (void)addMembers:(NSSet<TTUser *> *)values;
-
-/**
- *  Remove multiple TTUsers from this group.
- *
- *  @param values NSSet containing TTUser objects.
- */
-- (void)removeMembers:(NSSet<TTUser *> *)values;
-
-@end
 
 NS_ASSUME_NONNULL_END

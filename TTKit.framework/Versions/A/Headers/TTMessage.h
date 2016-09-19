@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSInteger, TTMessageType) {
     TTMessageTypeNormal = 0,
     TTMessageTypeAutoforwardNotification,
+    TTMessageTypeEmptyRoleNotification,
 };
 
 typedef NS_ENUM(NSInteger, TTMessagePriority) {
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
     TTMessagePriorityHigh = 1,
 };
 
-@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser;
+@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser, TTRole;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -182,6 +183,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The user of an autoforwarded message.
  */
 @property (nonatomic, retain, nullable) TTUser *autoforwardUser;
+
+/**
+ *  The message sender's role.
+ */
+@property (nonatomic, retain, nullable) TTRole *senderRole;
 
 /**
  *  Placeholder string, not being used
