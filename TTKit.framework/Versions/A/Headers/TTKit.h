@@ -287,7 +287,7 @@ extern NSString *const TTKitErrorDomain;
  */
 - (void)application:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
-  completionHandler:(void (^)())completionHandler;
+  completionHandler:(void (^)())completionHandler DEPRECATED_MSG_ATTRIBUTE("application:handleEventsForBackgroundURLSession:completionHandler: is deprecated");
 
 /**
  *  Should be added to the method with the same name in your AppDelegate in order to support Background fetch for push notifications.
@@ -1915,7 +1915,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use forwardMessage:asRole:recipient:priorityMessage:su
  *
  *  @param completion Called upon query's completion.
  */
-- (void)savedRolesForOrganizationToken:(NSString *)organizationToken completion:(void (^)(NSArray *savedRoles, BOOL success, NSError *error))completion;
+- (id)savedRolesForOrganizationToken:(NSString *)organizationToken completion:(void (^)(NSArray *savedRoles, BOOL success, NSError *error))completion;
 
 /**
  *  Update Role saved property, use this to bookmark a role to the list of your saved (favorite) roles.
@@ -2346,6 +2346,25 @@ continuationToken:(NSString *)continuationToken
 - (void)didEndTyping:(NSString *)receipentToken
              success:(void (^)(void))success
              failure:(void (^)(NSError * error))failure;
+
+/**
+ *  Gets a phone number from the server that can be dialed to reach another user.
+ *
+ * @param userID The userID for the user you'd like to reach
+ * @param success Called when we successfully get a proxy phone number from the server
+ * @param failure Called when the server returns an error or cannot be reached.
+ */
+- (id)getProxyPhoneNumberForUserWithToken:(NSString *)userToken
+                        organizationToken:(NSString *)organizationToken
+                                  success:(void (^)(NSString *proxyPhone))success
+                                  failure:(void (^)(NSError *))failure;
+
+/**
+ *  Check if click-to-call is enabled for an organization
+ *
+ *  @param organizationToken A token corresponding to the organization you'd like to check for the click-to-call feature.
+ */
+- (BOOL)isClickToCallEnabledForOrganizationWithToken:(NSString *)organizationToken;
 
 
 ///-------------------------------------------------------

@@ -22,6 +22,11 @@
 @property (nonatomic, retain) NSString * avatarURL;
 
 /**
+ A set of capabilities that are disabled for this party.
+ */
+@property (nonatomic, retain) NSSet<NSString *> *disabledCapabilities;
+
+/**
  *  encrypted display name.
  */
 @property (nonatomic, retain) NSData * encryptedDisplayName;
@@ -222,5 +227,15 @@
  *  @param values NSSet of TTMetadata objects.
  */
 - (void)removeMetadata:(NSSet *)values;
+
+///-------------------------------------------------------
+/// @name Capabilities
+///-------------------------------------------------------
+
+/**
+ *  Is this user available to receive calls?
+ */
+@property (nonatomic, readonly) BOOL canReceiveCalls;
+
 
 @end

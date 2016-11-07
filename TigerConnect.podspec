@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TigerConnect"
-  s.version          = "1.5"
+  s.version          = "1.5.1"
   s.summary          = "TigerConnect iOS SDK"
   s.description      = "Enhance your iOS apps with intelligent, secure messaging from TigerConnect"
   s.license          = 'Commercial'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.source           = { :git => "https://github.com/tigerconnect/ios-sdk-release.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.vendored_framework   = 'TTKit.framework'
   s.resource = "TTKit.bundle"
   s.libraries = ["z"]

@@ -28,5 +28,6 @@ typedef NS_ENUM(NSInteger, TTKitSetting)
     TTKitSettingSessionExpired,
     TTKitSettingDisableChangePassword,
     TTKitSettingDisableAddInbox,
-    TTKitSettingRoleService
+    TTKitSettingRoleService,
+    TTKitSettingClickToCall,
 };

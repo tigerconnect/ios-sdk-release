@@ -81,4 +81,9 @@ typedef void (^TTRoleSelectorHandler)(BOOL cancelled, TTRole *selectedRole);
  **/
 - (NSSet<TTRole *> *)actingRolesForRoster:(TTRosterEntry *)rosterEntry;
 
+
+- (NSArray *)roleTokens;
+
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
+
 @end

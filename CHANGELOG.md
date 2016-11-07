@@ -1,5 +1,11 @@
 # TigerConnect Change Log
 
+## 1.5.1
+
+* Fixed TTKit bundle CFBundleSupportedPlatforms issue
+* Fixed issue of outgoing messages not expiring on the local device
+* Miscellaneous stability and performance enhancements
+
 ## 1.4
 #### Public API Changes 
 
