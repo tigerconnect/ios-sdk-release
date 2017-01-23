@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TigerConnect"
-  s.version          = "1.5.5"
+  s.version          = "1.5.6"
   s.summary          = "TigerConnect iOS SDK"
   s.description      = "Enhance your iOS apps with intelligent, secure messaging from TigerConnect"
   s.license          = 'Commercial'
