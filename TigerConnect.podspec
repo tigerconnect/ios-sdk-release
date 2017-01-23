@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TigerConnect"
-  s.version          = "1.5.1"
+  s.version          = "1.5.3"
   s.summary          = "TigerConnect iOS SDK"
   s.description      = "Enhance your iOS apps with intelligent, secure messaging from TigerConnect"
   s.license          = 'Commercial'
@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '8.0'
   s.vendored_framework   = 'TTKit.framework'
-  s.resource = "TTKit.bundle"
   s.libraries = ["z"]
   s.ios.frameworks = 'UIKit', 'Foundation', 'CoreGraphics', 'CoreData', 'CFNetwork', 'Security', 'SystemConfiguration', 'AVFoundation', 'AddressBook', 'CoreLocation', 'MobileCoreServices', 'CoreTelephony', 'CoreMedia', 'ImageIO'
 end
