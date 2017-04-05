@@ -1,6 +1,0 @@
-framework module TTKit {
-  umbrella header "TTKit.h"
-
-  export *
-  module * { export * }
-}
