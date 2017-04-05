@@ -1,5 +1,10 @@
 # TigerConnect Change Log
 
+## 1.5.3
+
+* Fixed TTKit testing enviroment issue
+* Miscellaneous stability and performance enhancements
+
 ## 1.5.1
 
 * Fixed TTKit bundle CFBundleSupportedPlatforms issue
