@@ -21,8 +21,7 @@ TigerConnect iOS SDK can be installed directly into your application by importin
 ### Requirements
 
 The following are requirements for the TigerConnect iOS SDK.
-* ARC
-* iOS7
+* iOS9
 
 ### CocoaPods Installation
 
@@ -46,9 +45,9 @@ $ pod install
 ```
 These instructions will setup your local CocoaPods environment and import the TigerConnect iOS SDK into your project. 
 
-## iOS 9
+## App Transport Security Settings
 
-If you install on iOS9 you need to this to your plist file:
+Please add the following settings to your plist file:
 ```xml
 <key>NSAppTransportSecurity</key>
 <dict>
