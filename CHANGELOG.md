@@ -1,5 +1,9 @@
 # TigerConnect Change Log
 
+## 1.7
+
+* Bug fixes and performance improvments
+
 ## 1.5.4
 
 * Fixed migration issue that appeared in 1.5.3
