@@ -12,7 +12,7 @@
 
 @class TTShift;
 
-@class TTGroup, TTMessage, TTMessageStatus, TTRole, TTRoleGroup;
+@class TTGroup, TTMessage, TTMessageStatus, TTRole, TTRoleGroup, TTEscalation, TTEscalationPolicy;
 
 @interface TTUser : TTParty
 
@@ -116,7 +116,40 @@
  */
 @property (nullable, nonatomic, retain) NSSet<TTRoleGroup *> *roleGroups;
 
+/**
+ * Set of shifts that belongs to this user.
+ */
 @property (nullable, nonatomic, retain) NSSet<TTShift *> *userShifts;
+
+/**
+ * Inverse relationship to TTEscalation's backup1.
+ * @discussion This value is only not empty when this user is a backup1 for an escalation event.
+ */
+@property (nullable, nonatomic, retain) TTEscalation *escalationTarget1;
+
+/**
+ * Inverse relationship to TTEscalation's backup2.
+ * @discussion This value is only not empty when this user is a backup2 for an escalation event.
+ */
+@property (nullable, nonatomic, retain) TTEscalation *escalationTarget2;
+
+/**
+ * Inverse relationship to TTEscalationPolicy's backup1.
+ * @discussion This value is only not empty when this user is a backup1 for an escalation policy.
+ */
+@property (nullable, nonatomic, retain) TTEscalationPolicy *escalationPolicyTarget1;
+
+/**
+ * Inverse relationship to TTEscalationPolicy's backup2.
+ * @discussion This value is only not empty when this user is a backup2 for an escalation policy.
+ */
+@property (nullable, nonatomic, retain) TTEscalationPolicy *escalationPolicyTarget2;
+
+/**
+ * Inverse relationship to TTEscalation's actionUser.
+ * @discussion This value is only not empty when this user has taken some action (cancel or acknowledge) in an escalation event.
+ */
+@property (nullable, nonatomic, retain) NSSet<TTEscalation *> *escalationAction;
 
 @end
 

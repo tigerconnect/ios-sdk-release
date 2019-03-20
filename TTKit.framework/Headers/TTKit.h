@@ -46,4 +46,7 @@ FOUNDATION_EXPORT const unsigned char TTKitVersionString[];
 #import <TTKit/TTKitConfiguration.h>
 #import <TTKit/TTEHREvent.h>
 #import <TTKit/TTAlertEvent.h>
+#import <TTKit/TTEscalation.h>
+#import <TTKit/TTDetectedData.h>
+#import <TTKit/TTEscalationPolicy.h>
 

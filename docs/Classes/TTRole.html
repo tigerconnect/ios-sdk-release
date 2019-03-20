@@ -1,789 +1,747 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>TTRole Class Reference</title>
-    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
-    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
-    <script src="../js/jquery.min.js" defer></script>
-    <script src="../js/jazzy.js" defer></script>
-    
-  </head>
-  <body>
-    <a name="//apple_ref/objc/Class/TTRole" class="dashAnchor"></a>
-    <a title="TTRole Class Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">TTKit Docs</a> (60% documented)</p>
-        <p class="header-right"><a href="https://github.com/tigerconnect/ios-sdk-release"><img src="../img/gh.png"/>View on GitHub</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">TTKit Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        TTRole Class Reference
-      </p>
-    </div>
-    <div class="content-wrapper">
-      <nav class="sidebar">
-        <ul class="nav-groups">
-          <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/TTAlertEvent.html">TTAlertEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTAttachmentDescriptor.html">TTAttachmentDescriptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTBadgeData.html">TTBadgeData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTConnectionStatusManager.html">TTConnectionStatusManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTContact.html">TTContact</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTDownloadData.html">TTDownloadData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTEHREvent.html">TTEHREvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTGroup.html">TTGroup</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTKit.html">TTKit</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTKitConfiguration.html">TTKitConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes.html#/c:objc(cs)TTKitConstants">TTKitConstants</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTLocalUserRolesObserver.html">TTLocalUserRolesObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTLogManager.html">TTLogManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTLogMessage.html">TTLogMessage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMessage.html">TTMessage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMessageRequest.html">TTMessageRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMessageStatus.html">TTMessageStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMetadata.html">TTMetadata</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTOrganization.html">TTOrganization</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTOrganizationAccount.html">TTOrganizationAccount</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTParty.html">TTParty</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTPresenceData.html">TTPresenceData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTRole.html">TTRole</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTRoleGroup.html">TTRoleGroup</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTRosterEntry.html">TTRosterEntry</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTSettingItem.html">TTSettingItem</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTShift.html">TTShift</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTTag.html">TTTag</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTUploadData.html">TTUploadData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTUser.html">TTUser</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Constants.html">Constants</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@TTConnectionStatusChangedNotification">TTConnectionStatusChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@TTKitErrorDomain">TTKitErrorDomain</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTAPIDelayedResponseNotification">kTTAPIDelayedResponseNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKITUserAPNDeviceTokenKey">kTTKITUserAPNDeviceTokenKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitAutoforwardFeatureDisabledNotification">kTTKitAutoforwardFeatureDisabledNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitAutoforwardRecipientTokenChangedNotification">kTTKitAutoforwardRecipientTokenChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitBackgroundPushUpdateCompleteNotification">kTTKitBackgroundPushUpdateCompleteNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionAuthenticationDidFailNotification">kTTKitConnectionAuthenticationDidFailNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionIsConnectingNotification">kTTKitConnectionIsConnectingNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionWasEstablishedNotification">kTTKitConnectionWasEstablishedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionWasLostNotification">kTTKitConnectionWasLostNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitContactsManagerLabelKey">kTTKitContactsManagerLabelKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationChangeNotification">kTTKitCurrentOrganizationChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationKey">kTTKitCurrentOrganizationKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationNameKey">kTTKitCurrentOrganizationNameKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationTokenKey">kTTKitCurrentOrganizationTokenKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidBeginDownloadingOfflineMessagesNotification">kTTKitDidBeginDownloadingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidFinishDownloadingOfflineMessagesNotification">kTTKitDidFinishDownloadingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidFinishProcessingOfflineMessagesNotification">kTTKitDidFinishProcessingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidLoginNotification">kTTKitDidLoginNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidLogoutNotification">kTTKitDidLogoutNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidReceiveRemoteLogoutNotification">kTTKitDidReceiveRemoteLogoutNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidStartProcessingOfflineMessagesNotification">kTTKitDidStartProcessingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitFeatureServiceAlertsKey">kTTKitFeatureServiceAlertsKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitFeatureServicePatientCareKey">kTTKitFeatureServicePatientCareKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitFeatureServiceRoleKey">kTTKitFeatureServiceRoleKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitGroupDidUpdateChangeNotification">kTTKitGroupDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageAttachmentDownloadedNotification">kTTKitMessageAttachmentDownloadedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageAttachmentUploadedNotification">kTTKitMessageAttachmentUploadedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageDidExpireNotification">kTTKitMessageDidExpireNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageDidFailToSendNotification">kTTKitMessageDidFailToSendNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageDidUpdateChangeNotification">kTTKitMessageDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageSentNotification">kTTKitMessageSentNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusDelivered">kTTKitMessageStatusDelivered</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusFailed">kTTKitMessageStatusFailed</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusNew">kTTKitMessageStatusNew</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusPendingUpdate">kTTKitMessageStatusPendingUpdate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusRead">kTTKitMessageStatusRead</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusReceivedOnClient">kTTKitMessageStatusReceivedOnClient</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusSending">kTTKitMessageStatusSending</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusSent">kTTKitMessageStatusSent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusToBeRead">kTTKitMessageStatusToBeRead</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageWasDeletedNotification">kTTKitMessageWasDeletedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageWasReceivedNotification">kTTKitMessageWasReceivedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageWillDeleteNotification">kTTKitMessageWillDeleteNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMuteStateChanged">kTTKitMuteStateChanged</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOfflineMessageProcessingDidFinishNotification">kTTKitOfflineMessageProcessingDidFinishNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOfflineMessagesDownloadedUpdateNotification">kTTKitOfflineMessagesDownloadedUpdateNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOrganizationTokensUserInfoKey">kTTKitOrganizationTokensUserInfoKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOrganizationsDidUpdateNotification">kTTKitOrganizationsDidUpdateNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitPersonalOrganizationDefaultToken">kTTKitPersonalOrganizationDefaultToken</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitPresenceDataTypeAvailable">kTTKitPresenceDataTypeAvailable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitPresenceDataTypeUnavailable">kTTKitPresenceDataTypeUnavailable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitReadyNotification">kTTKitReadyNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitReceivedMessageDidUpdateChangeNotification">kTTKitReceivedMessageDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitRoleServiceSettingsChangedNotification">kTTKitRoleServiceSettingsChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitRoomsFeatureDisabledNotification">kTTKitRoomsFeatureDisabledNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitRosterEntryWillDeleteNotification">kTTKitRosterEntryWillDeleteNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitSessionExpiredUpdateNotification">kTTKitSessionExpiredUpdateNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitTigerPageTokenDev">kTTKitTigerPageTokenDev</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitTigerPageTokenProduction">kTTKitTigerPageTokenProduction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitTigerPageTokenQA">kTTKitTigerPageTokenQA</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitURLResponseKey">kTTKitURLResponseKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUnreadMessagesCountChangedNotification">kTTKitUnreadMessagesCountChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserDetailsWereDownloadedNotification">kTTKitUserDetailsWereDownloadedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserDeviceLocalTimeIsOutOfSyncNotification">kTTKitUserDeviceLocalTimeIsOutOfSyncNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserDidUpdateChangeNotification">kTTKitUserDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserInfoErrorKey">kTTKitUserInfoErrorKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserInfoObjectKey">kTTKitUserInfoObjectKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserIsTypingChangeNotification">kTTKitUserIsTypingChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserValidatedPhoneNumberNotification">kTTKitUserValidatedPhoneNumberNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitWillLogoutNotification">kTTKitWillLogoutNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTkitContactsManagerValueKey">kTTkitContactsManagerValueKey</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/TTAttachmentType.html">TTAttachmentType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTConnectionStatus.html">TTConnectionStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTDownloadItemState.html">TTDownloadItemState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitEnvironment.html">TTKitEnvironment</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitError.html">TTKitError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitPersistanceType.html">TTKitPersistanceType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitSetting.html">TTKitSetting</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogComponent.html">TTLogComponent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogComponentFlag.html">TTLogComponentFlag</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogLevel.html">TTLogLevel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogLevelFlag.html">TTLogLevelFlag</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTMessagePriority.html">TTMessagePriority</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTMessageType.html">TTMessageType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTUploadItemState.html">TTUploadItemState</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Protocols/TTBadgeDataObserver.html">TTBadgeDataObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TTLocalUserRolesObserverDelegate.html">TTLocalUserRolesObserverDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TTLogDelegate.html">TTLogDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TTPresenceDataObserver.html">TTPresenceDataObserver</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Type Definitions.html">Type Definitions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:TTLocalUserRolesObserver.h@T@TTRoleSelectorHandler">TTRoleSelectorHandler</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Functions.html">Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogComponentFlagLast">TTLogComponentFlagLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogComponentLast">TTLogComponentLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogLevelFlagLast">TTLogLevelFlagLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogLevelLast">TTLogLevelLast</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <article class="main-content">
-        <section>
-          <section class="section">
-            <h1>TTRole</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">TTRole</span> <span class="p">:</span> <span class="nc"><a href="../Classes/TTUser.html">TTUser</a></span></code></pre>
+<html>
+<head>
+	<meta charset="utf-8">
 
-                </div>
-              </div>
-            <p>Undocumented</p>
+	<title>TTRole Class Reference</title>
 
-          </section>
-          <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)isOptingOut"></a>
-                    <a name="//apple_ref/objc/Property/isOptingOut" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)isOptingOut">isOptingOut</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">TTKit SDK </a>
+			</h1>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">isOptingOut</span></code></pre>
+			<p id="developer-home">
+				<a href="../index.html">TigerText</a>
+			</p>
+			
+		</div>
+	</header>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isOptingOut</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)locked"></a>
-                    <a name="//apple_ref/objc/Property/locked" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)locked">locked</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">locked</span></code></pre>
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">locked</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)replayHistory"></a>
-                    <a name="//apple_ref/objc/Property/replayHistory" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)replayHistory">replayHistory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">replayHistory</span></code></pre>
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/awayStatus">awayStatus</option>
+		
+		<option value="//api/name/escalationOriginalTarget">escalationOriginalTarget</option>
+		
+		<option value="//api/name/escalationPolicy">escalationPolicy</option>
+		
+		<option value="//api/name/isOptingOut">isOptingOut</option>
+		
+		<option value="//api/name/locked">locked</option>
+		
+		<option value="//api/name/messageStatus">messageStatus</option>
+		
+		<option value="//api/name/messages">messages</option>
+		
+		<option value="//api/name/ownerRequired">ownerRequired</option>
+		
+		<option value="//api/name/owners">owners</option>
+		
+		<option value="//api/name/replayHistory">replayHistory</option>
+		
+		<option value="//api/name/roleDescription">roleDescription</option>
+		
+		<option value="//api/name/roleShifts">roleShifts</option>
+		
+		<option value="//api/name/saved">saved</option>
+		
+		<option value="//api/name/tag">tag</option>
+		
+	</optgroup>
+	
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">replayHistory</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+	
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)roleDescription"></a>
-                    <a name="//apple_ref/objc/Property/roleDescription" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)roleDescription">roleDescription</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">roleDescription</span></code></pre>
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TTRole Class Reference</h1>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roleDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/TTUser.html">TTUser</a> : <a href="../Classes/TTParty.html">TTParty</a> : NSManagedObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TTRole.h</td>
+</tr>
+						</tbody></table></div>
+					
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)saved"></a>
-                    <a name="//apple_ref/objc/Property/saved" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)saved">saved</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                    
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">saved</span></code></pre>
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">saved</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+						
+						
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)messages"></a>
-                    <a name="//apple_ref/objc/Property/messages" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)messages">messages</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/isOptingOut" title="isOptingOut"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isOptingOut">&nbsp;&nbsp;isOptingOut</a></code>
+</h3>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n"><a href="../Classes/TTMessage.html">TTMessage</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">messages</span></code></pre>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">messages</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A BOOL value indicating whether there is a user in the process of opting out of the role.</p>
+			</div>
+			
+		    
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)messageStatus"></a>
-                    <a name="//apple_ref/objc/Property/messageStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)messageStatus">messageStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *isOptingOut</code></div>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n"><a href="../Classes/TTMessageStatus.html">TTMessageStatus</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">messageStatus</span></code></pre>
+		    
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">messageStatus</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)owners"></a>
-                    <a name="//apple_ref/objc/Property/owners" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)owners">owners</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n"><a href="../Classes/TTUser.html">TTUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">owners</span></code></pre>
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">owners</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/TTUser.html">TTUser</a></span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)tag"></a>
-                    <a name="//apple_ref/objc/Property/tag" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)tag">tag</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n"><a href="../Classes/TTTag.html">TTTag</a></span> <span class="o">*</span><span class="n">tag</span></code></pre>
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ownerRequired" title="ownerRequired"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ownerRequired">&nbsp;&nbsp;ownerRequired</a></code>
+</h3>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt"><a href="../Classes/TTTag.html">TTTag</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTRole(py)roleShifts"></a>
-                    <a name="//apple_ref/objc/Property/roleShifts" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTRole(py)roleShifts">roleShifts</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BOOL that indicates if this role can ever be without an owner.</p>
+			</div>
+			
+		    
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n"><a href="../Classes/TTShift.html">TTShift</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">roleShifts</span></code></pre>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *ownerRequired</code></div>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roleShifts</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+		    
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-        <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://developer.tigertext.com" target="_blank" rel="external">TigerConnect</a>. All rights reserved. (Last updated: 2018-03-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
-      </article>
-    </div>
-  </body>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/locked" title="locked"></a>
+	<h3 class="method-title"><code><a href="#//api/name/locked">&nbsp;&nbsp;locked</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BOOL that indicates whether the role can be assigned to anyone.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *locked</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>When a role is not locked, it can be assigned to anyone.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/replayHistory" title="replayHistory"></a>
+	<h3 class="method-title"><code><a href="#//api/name/replayHistory">&nbsp;&nbsp;replayHistory</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BOOL value indicating whether to show role history when user opts into the role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *replayHistory</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/roleDescription" title="roleDescription"></a>
+	<h3 class="method-title"><code><a href="#//api/name/roleDescription">&nbsp;&nbsp;roleDescription</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Description of role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSString *roleDescription</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/awayStatus" title="awayStatus"></a>
+	<h3 class="method-title"><code><a href="#//api/name/awayStatus">&nbsp;&nbsp;awayStatus</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Automated response set for the role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSString *awayStatus</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/saved" title="saved"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saved">&nbsp;&nbsp;saved</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BOOL value indicating whether this role has been added to &ldquo;Saved Roles&rdquo; for a user.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *saved</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/messages" title="messages"></a>
+	<h3 class="method-title"><code><a href="#//api/name/messages">&nbsp;&nbsp;messages</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set of messages associated with this role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSSet&lt;TTMessage*&gt; *messages</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/messageStatus" title="messageStatus"></a>
+	<h3 class="method-title"><code><a href="#//api/name/messageStatus">&nbsp;&nbsp;messageStatus</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set of message statuses of the <a href="#//api/name/messages">messages</a> that are associated with this role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSSet&lt;TTMessageStatus*&gt; *messageStatus</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/owners" title="owners"></a>
+	<h3 class="method-title"><code><a href="#//api/name/owners">&nbsp;&nbsp;owners</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set of owners of this role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSSet&lt;TTUser*&gt; *owners</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> Currently <code>owners</code> set only contains a max of one user.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tag" title="tag"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tag">&nbsp;&nbsp;tag</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Role tag that can be used to filter in a list of roles.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) TTTag *tag</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/escalationPolicy" title="escalationPolicy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/escalationPolicy">&nbsp;&nbsp;escalationPolicy</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Escalation policy associated with this role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) TTEscalationPolicy *escalationPolicy</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/roleShifts" title="roleShifts"></a>
+	<h3 class="method-title"><code><a href="#//api/name/roleShifts">&nbsp;&nbsp;roleShifts</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Shifts associated with this role.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSSet&lt;TTShift*&gt; *roleShifts</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/escalationOriginalTarget" title="escalationOriginalTarget"></a>
+	<h3 class="method-title"><code><a href="#//api/name/escalationOriginalTarget">&nbsp;&nbsp;escalationOriginalTarget</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Inverse relationship to TTEscalation&rsquo;s originalTarget.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) TTEscalation *escalationOriginalTarget</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is only not empty when role is set to be the original target in an escalation event.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTRole.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 TigerText. All rights reserved. Updated: 2019-03-20</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
 </html>

@@ -15,15 +15,17 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
     TTMessageTypeEmptyRoleNotification,
     TTMessageTypeAlert,
     TTMessageTypePatientCare,
+    TTMessageTypeRoleAwayResponse,
 };
 
 typedef NS_ENUM(NSInteger, TTMessagePriority) {
     TTMessagePriorityNormal = 0,
     TTMessagePriorityHigh = 1,
+    TTMessagePriorityEscalation = 2,
 };
 
-@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser, TTRole, TTEHREvent, TTAlertEvent;
-
+@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser, TTRole, TTEHREvent, TTAlertEvent, TTEscalation, TTDetectedData;
+ 
 /**
  *  A TTMessage object represents a message.
  */
@@ -223,5 +225,20 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
  */
 
 @property (nullable, nonatomic, retain) TTAlertEvent *alertEvent;
+
+/**
+ *  The related escalation to this message.
+ */
+@property (nullable, nonatomic, retain) TTEscalation *escalation;
+
+/**
+ * Set of data that is detected from the message body. For types, see `TTDetectedMessageType`.
+ */
+@property (nullable, nonatomic, retain) NSSet<TTDetectedData *> *detectedDatas;
+
+/**
+ * A BOOL value indicating whether the message has been processed for detectedData already.
+ */
+@property (nonnull, nonatomic, retain) NSNumber *didProcessDetectedData;
 
 @end

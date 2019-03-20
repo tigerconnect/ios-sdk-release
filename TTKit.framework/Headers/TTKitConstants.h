@@ -79,6 +79,7 @@ FOUNDATION_EXPORT NSString *const kTTkitContactsManagerValueKey;
 
 FOUNDATION_EXPORT NSString *const kTTKitPersonalOrganizationDefaultToken;
 FOUNDATION_EXPORT NSString *const kTTKITUserAPNDeviceTokenKey;
+FOUNDATION_EXPORT NSString *const kTTKITUserVoipAPNDeviceTokenKey;
 
 FOUNDATION_EXPORT NSString *const kTTKitURLResponseKey;
 FOUNDATION_EXPORT NSString *const kTTKitTigerPageTokenProduction;
@@ -87,6 +88,48 @@ FOUNDATION_EXPORT NSString *const kTTKitTigerPageTokenDev;
 
 FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceAlertsKey;
 FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceRoleKey;
+FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceRoleAlertsKey;
 FOUNDATION_EXPORT NSString *const kTTKitFeatureServicePatientCareKey;
+FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceEscalationKey;
+
+FOUNDATION_EXPORT NSString *const kTTKitEscalationDeletedNotification;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationUpdatedNotification;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationCreatedNotification;
+
+FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusEscalated;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusInProgress;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusAcknowledged;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusCancelled;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusNoResponse;
+FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusConversationEscalated;
+
+FOUNDATION_EXPORT NSString *const kTTKitRoleTagUpdatedNotification;
+
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeJpeg;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypePjpeg;
+
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypePng;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeXpng;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeGif;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeBmp;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeAudioMP4;
+
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeWav;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeXwav;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeMpeg;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeXm4a;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeMp3;
+
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeVideoMP4;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeXa4v;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeQuicktime;
+
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypePdf;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeMsWord;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeDocx;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeExcel;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypeSheet;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypePowerpoint;
+FOUNDATION_EXPORT NSString *const kTTKitMimeTypePresentation;
 
 @end

@@ -1,917 +1,864 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>TTGroup Class Reference</title>
-    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
-    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
-    <script src="../js/jquery.min.js" defer></script>
-    <script src="../js/jazzy.js" defer></script>
-    
-  </head>
-  <body>
-    <a name="//apple_ref/objc/Class/TTGroup" class="dashAnchor"></a>
-    <a title="TTGroup Class Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">TTKit Docs</a> (60% documented)</p>
-        <p class="header-right"><a href="https://github.com/tigerconnect/ios-sdk-release"><img src="../img/gh.png"/>View on GitHub</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">TTKit Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        TTGroup Class Reference
-      </p>
-    </div>
-    <div class="content-wrapper">
-      <nav class="sidebar">
-        <ul class="nav-groups">
-          <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/TTAlertEvent.html">TTAlertEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTAttachmentDescriptor.html">TTAttachmentDescriptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTBadgeData.html">TTBadgeData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTConnectionStatusManager.html">TTConnectionStatusManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTContact.html">TTContact</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTDownloadData.html">TTDownloadData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTEHREvent.html">TTEHREvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTGroup.html">TTGroup</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTKit.html">TTKit</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTKitConfiguration.html">TTKitConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes.html#/c:objc(cs)TTKitConstants">TTKitConstants</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTLocalUserRolesObserver.html">TTLocalUserRolesObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTLogManager.html">TTLogManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTLogMessage.html">TTLogMessage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMessage.html">TTMessage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMessageRequest.html">TTMessageRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMessageStatus.html">TTMessageStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTMetadata.html">TTMetadata</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTOrganization.html">TTOrganization</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTOrganizationAccount.html">TTOrganizationAccount</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTParty.html">TTParty</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTPresenceData.html">TTPresenceData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTRole.html">TTRole</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTRoleGroup.html">TTRoleGroup</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTRosterEntry.html">TTRosterEntry</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTSettingItem.html">TTSettingItem</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTShift.html">TTShift</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTTag.html">TTTag</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTUploadData.html">TTUploadData</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TTUser.html">TTUser</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Constants.html">Constants</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@TTConnectionStatusChangedNotification">TTConnectionStatusChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@TTKitErrorDomain">TTKitErrorDomain</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTAPIDelayedResponseNotification">kTTAPIDelayedResponseNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKITUserAPNDeviceTokenKey">kTTKITUserAPNDeviceTokenKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitAutoforwardFeatureDisabledNotification">kTTKitAutoforwardFeatureDisabledNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitAutoforwardRecipientTokenChangedNotification">kTTKitAutoforwardRecipientTokenChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitBackgroundPushUpdateCompleteNotification">kTTKitBackgroundPushUpdateCompleteNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionAuthenticationDidFailNotification">kTTKitConnectionAuthenticationDidFailNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionIsConnectingNotification">kTTKitConnectionIsConnectingNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionWasEstablishedNotification">kTTKitConnectionWasEstablishedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitConnectionWasLostNotification">kTTKitConnectionWasLostNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitContactsManagerLabelKey">kTTKitContactsManagerLabelKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationChangeNotification">kTTKitCurrentOrganizationChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationKey">kTTKitCurrentOrganizationKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationNameKey">kTTKitCurrentOrganizationNameKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitCurrentOrganizationTokenKey">kTTKitCurrentOrganizationTokenKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidBeginDownloadingOfflineMessagesNotification">kTTKitDidBeginDownloadingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidFinishDownloadingOfflineMessagesNotification">kTTKitDidFinishDownloadingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidFinishProcessingOfflineMessagesNotification">kTTKitDidFinishProcessingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidLoginNotification">kTTKitDidLoginNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidLogoutNotification">kTTKitDidLogoutNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidReceiveRemoteLogoutNotification">kTTKitDidReceiveRemoteLogoutNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitDidStartProcessingOfflineMessagesNotification">kTTKitDidStartProcessingOfflineMessagesNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitFeatureServiceAlertsKey">kTTKitFeatureServiceAlertsKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitFeatureServicePatientCareKey">kTTKitFeatureServicePatientCareKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitFeatureServiceRoleKey">kTTKitFeatureServiceRoleKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitGroupDidUpdateChangeNotification">kTTKitGroupDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageAttachmentDownloadedNotification">kTTKitMessageAttachmentDownloadedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageAttachmentUploadedNotification">kTTKitMessageAttachmentUploadedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageDidExpireNotification">kTTKitMessageDidExpireNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageDidFailToSendNotification">kTTKitMessageDidFailToSendNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageDidUpdateChangeNotification">kTTKitMessageDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageSentNotification">kTTKitMessageSentNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusDelivered">kTTKitMessageStatusDelivered</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusFailed">kTTKitMessageStatusFailed</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusNew">kTTKitMessageStatusNew</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusPendingUpdate">kTTKitMessageStatusPendingUpdate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusRead">kTTKitMessageStatusRead</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusReceivedOnClient">kTTKitMessageStatusReceivedOnClient</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusSending">kTTKitMessageStatusSending</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusSent">kTTKitMessageStatusSent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageStatusToBeRead">kTTKitMessageStatusToBeRead</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageWasDeletedNotification">kTTKitMessageWasDeletedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageWasReceivedNotification">kTTKitMessageWasReceivedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMessageWillDeleteNotification">kTTKitMessageWillDeleteNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitMuteStateChanged">kTTKitMuteStateChanged</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOfflineMessageProcessingDidFinishNotification">kTTKitOfflineMessageProcessingDidFinishNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOfflineMessagesDownloadedUpdateNotification">kTTKitOfflineMessagesDownloadedUpdateNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOrganizationTokensUserInfoKey">kTTKitOrganizationTokensUserInfoKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitOrganizationsDidUpdateNotification">kTTKitOrganizationsDidUpdateNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitPersonalOrganizationDefaultToken">kTTKitPersonalOrganizationDefaultToken</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitPresenceDataTypeAvailable">kTTKitPresenceDataTypeAvailable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitPresenceDataTypeUnavailable">kTTKitPresenceDataTypeUnavailable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitReadyNotification">kTTKitReadyNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitReceivedMessageDidUpdateChangeNotification">kTTKitReceivedMessageDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitRoleServiceSettingsChangedNotification">kTTKitRoleServiceSettingsChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitRoomsFeatureDisabledNotification">kTTKitRoomsFeatureDisabledNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitRosterEntryWillDeleteNotification">kTTKitRosterEntryWillDeleteNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitSessionExpiredUpdateNotification">kTTKitSessionExpiredUpdateNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitTigerPageTokenDev">kTTKitTigerPageTokenDev</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitTigerPageTokenProduction">kTTKitTigerPageTokenProduction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitTigerPageTokenQA">kTTKitTigerPageTokenQA</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitURLResponseKey">kTTKitURLResponseKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUnreadMessagesCountChangedNotification">kTTKitUnreadMessagesCountChangedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserDetailsWereDownloadedNotification">kTTKitUserDetailsWereDownloadedNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserDeviceLocalTimeIsOutOfSyncNotification">kTTKitUserDeviceLocalTimeIsOutOfSyncNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserDidUpdateChangeNotification">kTTKitUserDidUpdateChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserInfoErrorKey">kTTKitUserInfoErrorKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserInfoObjectKey">kTTKitUserInfoObjectKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserIsTypingChangeNotification">kTTKitUserIsTypingChangeNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitUserValidatedPhoneNumberNotification">kTTKitUserValidatedPhoneNumberNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTKitWillLogoutNotification">kTTKitWillLogoutNotification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Constants.html#/c:@kTTkitContactsManagerValueKey">kTTkitContactsManagerValueKey</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/TTAttachmentType.html">TTAttachmentType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTConnectionStatus.html">TTConnectionStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTDownloadItemState.html">TTDownloadItemState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitEnvironment.html">TTKitEnvironment</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitError.html">TTKitError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitPersistanceType.html">TTKitPersistanceType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTKitSetting.html">TTKitSetting</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogComponent.html">TTLogComponent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogComponentFlag.html">TTLogComponentFlag</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogLevel.html">TTLogLevel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTLogLevelFlag.html">TTLogLevelFlag</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTMessagePriority.html">TTMessagePriority</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTMessageType.html">TTMessageType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/TTUploadItemState.html">TTUploadItemState</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Protocols/TTBadgeDataObserver.html">TTBadgeDataObserver</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TTLocalUserRolesObserverDelegate.html">TTLocalUserRolesObserverDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TTLogDelegate.html">TTLogDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TTPresenceDataObserver.html">TTPresenceDataObserver</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Type Definitions.html">Type Definitions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Type Definitions.html#/c:TTLocalUserRolesObserver.h@T@TTRoleSelectorHandler">TTRoleSelectorHandler</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Functions.html">Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogComponentFlagLast">TTLogComponentFlagLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogComponentLast">TTLogComponentLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogLevelFlagLast">TTLogLevelFlagLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Functions.html#/c:TTLogMessage.h@F@TTLogLevelLast">TTLogLevelLast</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <article class="main-content">
-        <section>
-          <section class="section">
-            <h1>TTGroup</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">TTGroup</span> <span class="p">:</span> <span class="nc"><a href="../Classes/TTParty.html">TTParty</a></span></code></pre>
+<html>
+<head>
+	<meta charset="utf-8">
 
-                </div>
-              </div>
-            <p>TTGroup is a class that represents a TigerText Group or Room.</p>
+	<title>TTGroup Class Reference</title>
 
-          </section>
-          <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)isPublic"></a>
-                    <a name="//apple_ref/objc/Property/isPublic" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)isPublic">isPublic</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Boolean value. If YES, the group is public and the local user can join it.</p>
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">TTKit SDK </a>
+			</h1>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">isPublic</span><span class="p">;</span></code></pre>
+			<p id="developer-home">
+				<a href="../index.html">TigerText</a>
+			</p>
+			
+		</div>
+	</header>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isPublic</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)isUserPartOfGroup"></a>
-                    <a name="//apple_ref/objc/Property/isUserPartOfGroup" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)isUserPartOfGroup">isUserPartOfGroup</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Boolean value. If YES, the local user is a part of this group.</p>
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">isUserPartOfGroup</span><span class="p">;</span></code></pre>
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isUserPartOfGroup</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)isDistributionList"></a>
-                    <a name="//apple_ref/objc/Property/isDistributionList" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)isDistributionList">isDistributionList</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Boolean value. If YES, the group is a distribution list.</p>
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">isDistributionList</span><span class="p">;</span></code></pre>
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/createdBy">createdBy</option>
+		
+		<option value="//api/name/createdTime">createdTime</option>
+		
+		<option value="//api/name/escalation">escalation</option>
+		
+		<option value="//api/name/groupDescription">groupDescription</option>
+		
+		<option value="//api/name/isDistributionList">isDistributionList</option>
+		
+		<option value="//api/name/isPublic">isPublic</option>
+		
+		<option value="//api/name/isUserPartOfGroup">isUserPartOfGroup</option>
+		
+		<option value="//api/name/members">members</option>
+		
+		<option value="//api/name/message">message</option>
+		
+		<option value="//api/name/messagesCount">messagesCount</option>
+		
+		<option value="//api/name/proxiedMembers">proxiedMembers</option>
+		
+		<option value="//api/name/replayHistory">replayHistory</option>
+		
+		<option value="//api/name/roomMembersCount">roomMembersCount</option>
+		
+	</optgroup>
+	
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isDistributionList</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+	
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)members"></a>
-                    <a name="//apple_ref/objc/Property/members" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)members">members</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>NSSet containing TTUser objects, representing all users which are members of this group.</p>
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/isUserInGroupNotAsRoleOwner:">- isUserInGroupNotAsRoleOwner:</option>
+		
+		<option value="//api/name/isUserPartOfGroup:">- isUserPartOfGroup:</option>
+		
+		<option value="//api/name/isUserTokenPartOfGroup:">- isUserTokenPartOfGroup:</option>
+		
+		<option value="//api/name/roleMembers">- roleMembers</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n"><a href="../Classes/TTUser.html">TTUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">members</span><span class="p">;</span></code></pre>
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TTGroup Class Reference</h1>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">members</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/TTParty.html">TTParty</a> : NSManagedObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TTGroup.h</td>
+</tr>
+						</tbody></table></div>
+					
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)message"></a>
-                    <a name="//apple_ref/objc/Property/message" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)message">message</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Last TTMessage received for this group.</p>
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>TTGroup is a class that represents a TigerText Group or Room.</p>
+					</div>
+					
+					
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/TTMessage.html">TTMessage</a></span> <span class="o">*</span><span class="n">message</span><span class="p">;</span></code></pre>
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">message</span><span class="p">:</span> <span class="kt"><a href="../Classes/TTMessage.html">TTMessage</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+						
+						
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)replayHistory"></a>
-                    <a name="//apple_ref/objc/Property/replayHistory" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)replayHistory">replayHistory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/isPublic" title="isPublic"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isPublic">&nbsp;&nbsp;isPublic</a></code>
+</h3>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">replayHistory</span></code></pre>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">replayHistory</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Boolean value. If YES, the group is public and the local user can join it.</p>
+			</div>
+			
+		    
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)messagesCount"></a>
-                    <a name="//apple_ref/objc/Property/messagesCount" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)messagesCount">messagesCount</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Group messages count (only available for public groups/rooms for now).</p>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *isPublic</code></div>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">messagesCount</span><span class="p">;</span></code></pre>
+		    
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">messagesCount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)roomMembersCount"></a>
-                    <a name="//apple_ref/objc/Property/roomMembersCount" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)roomMembersCount">roomMembersCount</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Group members count (only available for public groups/rooms for now).</p>
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">roomMembersCount</span><span class="p">;</span></code></pre>
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roomMembersCount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)createdTime"></a>
-                    <a name="//apple_ref/objc/Property/createdTime" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)createdTime">createdTime</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Group created date (only available for public groups/rooms for now).</p>
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">createdTime</span><span class="p">;</span></code></pre>
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isUserPartOfGroup" title="isUserPartOfGroup"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isUserPartOfGroup">&nbsp;&nbsp;isUserPartOfGroup</a></code>
+</h3>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">createdTime</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)groupDescription"></a>
-                    <a name="//apple_ref/objc/Property/groupDescription" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)groupDescription">groupDescription</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Group description (only available for public groups/rooms for now).</p>
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Boolean value. If YES, the local user is a part of this group.</p>
+			</div>
+			
+		    
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">groupDescription</span><span class="p">;</span></code></pre>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *isUserPartOfGroup</code></div>
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">groupDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+		    
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(py)createdBy"></a>
-                    <a name="//apple_ref/objc/Property/createdBy" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(py)createdBy">createdBy</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Return the TTUser who created to group (only available for public groups/rooms for now).</p>
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/TTUser.html">TTUser</a></span> <span class="o">*</span><span class="n">createdBy</span><span class="p">;</span></code></pre>
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">createdBy</span><span class="p">:</span> <span class="kt"><a href="../Classes/TTUser.html">TTUser</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(im)roleMembers"></a>
-                    <a name="//apple_ref/objc/Method/-roleMembers" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(im)roleMembers">-roleMembers</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns list of members who are Roles</p>
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSSet</span><span class="o">&lt;</span><span class="n"><a href="../Classes/TTRole.html">TTRole</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="n">roleMembers</span><span class="p">;</span></code></pre>
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">roleMembers</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="o">&gt;</span><span class="p">?</span></code></pre>
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isDistributionList" title="isDistributionList"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isDistributionList">&nbsp;&nbsp;isDistributionList</a></code>
+</h3>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(im)isUserTokenPartOfGroup:"></a>
-                    <a name="//apple_ref/objc/Method/-isUserTokenPartOfGroup:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(im)isUserTokenPartOfGroup:">-isUserTokenPartOfGroup:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isUserTokenPartOfGroup</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">token</span><span class="p">;</span></code></pre>
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Boolean value. If YES, the group is a distribution list.</p>
+			</div>
+			
+		    
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isUserTokenPart</span><span class="p">(</span><span class="n">ofGroup</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *isDistributionList</code></div>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)TTGroup(im)isUserPartOfGroup:"></a>
-                    <a name="//apple_ref/objc/Method/-isUserPartOfGroup:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)TTGroup(im)isUserPartOfGroup:">-isUserPartOfGroup:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+		    
+			
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isUserPartOfGroup</span><span class="p">:(</span><span class="n"><a href="../Classes/TTUser.html">TTUser</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">user</span><span class="p">;</span></code></pre>
+			
 
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isUserPart</span><span class="p">(</span><span class="n">ofGroup</span> <span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/TTUser.html">TTUser</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+			
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-        <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://developer.tigertext.com" target="_blank" rel="external">TigerConnect</a>. All rights reserved. (Last updated: 2018-03-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
-      </article>
-    </div>
-  </body>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/members" title="members"></a>
+	<h3 class="method-title"><code><a href="#//api/name/members">&nbsp;&nbsp;members</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>NSSet containing <a href="../Classes/TTUser.html">TTUser</a> objects, representing all users which are members of this group.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSSet&lt;TTUser*&gt; *members</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/message" title="message"></a>
+	<h3 class="method-title"><code><a href="#//api/name/message">&nbsp;&nbsp;message</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Last <a href="../Classes/TTMessage.html">TTMessage</a> received for this group.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) TTMessage *message</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/replayHistory" title="replayHistory"></a>
+	<h3 class="method-title"><code><a href="#//api/name/replayHistory">&nbsp;&nbsp;replayHistory</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>BOOL value to indicate whether to show history in the group when a new member joins.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *replayHistory</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/messagesCount" title="messagesCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/messagesCount">&nbsp;&nbsp;messagesCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Group messages count (only available for public groups/rooms for now).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *messagesCount</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/roomMembersCount" title="roomMembersCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/roomMembersCount">&nbsp;&nbsp;roomMembersCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Group <a href="#//api/name/members">members</a> count (only available for public groups/rooms for now).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSNumber *roomMembersCount</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createdTime" title="createdTime"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createdTime">&nbsp;&nbsp;createdTime</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Group created date (only available for public groups/rooms for now).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSDate *createdTime</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/groupDescription" title="groupDescription"></a>
+	<h3 class="method-title"><code><a href="#//api/name/groupDescription">&nbsp;&nbsp;groupDescription</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Group description (only available for public groups/rooms for now).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSString *groupDescription</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createdBy" title="createdBy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createdBy">&nbsp;&nbsp;createdBy</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Return the <a href="../Classes/TTUser.html">TTUser</a> who created to group (only available for public groups/rooms for now).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) TTUser *createdBy</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/escalation" title="escalation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/escalation">&nbsp;&nbsp;escalation</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) TTEscalation *escalation</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/proxiedMembers" title="proxiedMembers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/proxiedMembers">&nbsp;&nbsp;proxiedMembers</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>NSDictionary storing information about users in the group as roles.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, retain) NSObject *proxiedMembers</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>A user is a &ldquo;proxiedMember&rdquo; if the user is in the group as the owner of a role.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/roleMembers" title="roleMembers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/roleMembers">&ndash;&nbsp;roleMembers</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns list of <a href="#//api/name/members">members</a> who are Roles</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSSet&lt;TTRole*&gt; *_Nullable)roleMembers</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isUserTokenPartOfGroup:" title="isUserTokenPartOfGroup:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isUserTokenPartOfGroup:">&ndash;&nbsp;isUserTokenPartOfGroup:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Checks whether the given user token belongs to a member of the group.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isUserTokenPartOfGroup:(NSString *_Nonnull)<em>token</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isUserPartOfGroup:" title="isUserPartOfGroup:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isUserPartOfGroup:">&ndash;&nbsp;isUserPartOfGroup:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Checks whether the given user is a member of the group.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isUserPartOfGroup:(TTUser *_Nonnull)<em>user</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isUserInGroupNotAsRoleOwner:" title="isUserInGroupNotAsRoleOwner:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isUserInGroupNotAsRoleOwner:">&ndash;&nbsp;isUserInGroupNotAsRoleOwner:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<ul>
+<li>Checks whether the given user is in the group as the user, and not as a role owner.
+*</li>
+</ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isUserInGroupNotAsRoleOwner:(TTUser *_Nonnull)<em>user</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>YES if the user&rsquo;s user token is not in <a href="#//api/name/proxiedMembers"><code>proxiedMembers</code></a>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTGroup.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 TigerText. All rights reserved. Updated: 2019-03-20</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
 </html>

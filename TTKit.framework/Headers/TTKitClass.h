@@ -12,7 +12,7 @@
 #import "TTKitConstants.h"
 #import "TTKitConfiguration.h"
 
-@class TTContact, TTBadgeData, TTDownloadData, TTGroup, TTMessageRequest, TTOrganization, TTParty, TTPresenceData, TTRole, TTRosterEntry, TTShift, TTUploadData, TTUser;
+@class TTContact, TTBadgeData, TTDownloadData, TTGroup, TTMessageRequest, TTOrganization, TTParty, TTPresenceData, TTRole, TTRosterEntry, TTShift, TTUploadData, TTUser, TTTag;
 
 /**
  *  TTKitError.
@@ -199,6 +199,14 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  
  */
 - (void)registerPushNotificationDataToken:(NSData *_Nonnull)dataToken;
+
+/**
+ Register the device VoIP APNs token.
+ 
+ @param dataToken device VoIP push token.
+ 
+ */
+- (void)registerVoipPushNotificationDataToken:(NSData *_Nonnull)dataToken;
 
 ///-------------------------------------------------------
 /// @name Organization
@@ -653,6 +661,39 @@ extern NSString * _Nonnull const TTKitErrorDomain;
 - (NSFetchedResultsController * _Nullable)groupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate> _Nullable)delegate;
 
 /**
+ Public Groups fetchController will return all public groups related to the current organization with
+ Must be called on the main thread only.
+ 
+ @param delegate NSFetchedResultsControllerDelegate object.
+ 
+ @return An 'NSFetchedResultsController' Object.
+ 
+ */
+- (NSFetchedResultsController *)publicGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+
+/**
+ Private Groups fetchController will return all private groups related to the current organization with
+ Must be called on the main thread only.
+ 
+ @param delegate NSFetchedResultsControllerDelegate object.
+ 
+ @return An 'NSFetchedResultsController' Object.
+ 
+ */
+- (NSFetchedResultsController *)privateGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+
+/**
+ Broadcast List Groups fetchController will return all broadcast list groups related to the current organization with
+ Must be called on the main thread only.
+ 
+ @param delegate NSFetchedResultsControllerDelegate object.
+ 
+ @return An 'NSFetchedResultsController' Object.
+ 
+ */
+- (NSFetchedResultsController *)broadcastListGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+
+/**
  *  Create a new TTGroup.
  *
  *  Local user will be added as a memeber of the resulting group unless nil was passed for memberTokens array.
@@ -931,18 +972,19 @@ extern NSString * _Nonnull const TTKitErrorDomain;
               params:(NSDictionary *_Nullable)params
              success:(void(^ _Nullable)(NSArray * _Nullable groups))completionBlock;
 
-
 /**
  *
- Local group search
+ Private group search
  Returns an array of TTGroup objects with a displayName containing the search string which are a part of the user's current organization.
  Returned objects are TTGroup
  *
  *  @param search          Search string.
  *  @param completionBlock Block which should handle the returned TTGroup array. If no user is found, returned array will be empty.
+ *  @param failure      Failure block, returns an NSError.
  */
-- (void)searchGroupsLocally:(NSString * _Nonnull)search
-                    success:(void(^ _Nullable)(NSArray * _Nullable groups))completionBlock;
+- (void)searchPrivateGroups:(NSString * _Nonnull)search
+                    success:(void(^ _Nullable)(NSArray * _Nullable groups))completionBlock
+                    failure:(void(^ _Nullable)(NSError * _Nullable error))failure;
 
 /**
  *
@@ -951,11 +993,30 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  Returned objects are TTGroup
  *
  *  @param search          Search string.
+ *  @param continuationToken     Pass in a continuation token to paginate results.
  *  @param completionBlock Block which should handle the returned TTGroup array. If no user is found, returned array will be empty.
+ *  @param failure      Failure block, returns an NSError.
  */
 - (void)searchPublicGroups:(NSString * _Nonnull)search
          continuationToken:(NSString * _Nullable)continuationToken
-                   success:(void(^ _Nullable)(NSArray * _Nullable users, NSDictionary * _Nullable resultMetadata))completionBlock;
+                   success:(void(^ _Nullable)(NSArray * _Nullable groups, NSDictionary * _Nullable resultMetadata))completionBlock
+                   failure:(void(^ _Nullable)(NSError * _Nullable error))failure;
+
+/**
+ *
+ Broadcast List group search
+ Returns an array of TTGroup objects with a displayName containing the search string which are a part of the user's current organization.
+ Returned objects are TTGroup
+ *
+ *  @param search          Search string.
+ *  @param continuationToken     Pass in a continuation token to paginate results.
+ *  @param completionBlock Block which should handle the returned TTGroup array. If no user is found, returned array will be empty.
+ *  @param failure      Failure block, returns an NSError.
+ */
+- (void)searchBroadcastListGroups:(NSString * _Nonnull)search
+                continuationToken:(NSString * _Nullable)continuationToken
+                          success:(void(^ _Nullable)(NSArray * _Nullable groups, NSDictionary * _Nullable resultMetadata))completionBlock
+                          failure:(void(^ _Nullable)(NSError * _Nullable error))failure;
 
 /**
  *  Remote search for Groups by the a metadata key
@@ -968,7 +1029,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  */
 - (void)searchGroups:(NSString * _Nonnull)search
          metatadaKey:(NSString * _Nonnull)metadataKey
-             success:(void(^ _Nullable)(NSArray * _Nullable users))completionBlock;
+             success:(void(^ _Nullable)(NSArray * _Nullable groups))completionBlock;
 
 /**
  *  Remote search for Groups by the a metadata key
@@ -983,7 +1044,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
 - (void)searchGroups:(NSString * _Nonnull)search
          metatadaKey:(NSString * _Nonnull)metadataKey
               params:(NSDictionary * _Nullable)params
-             success:(void(^ _Nullable)(NSArray * _Nullable users))completionBlock;
+             success:(void(^ _Nullable)(NSArray * _Nullable groups))completionBlock;
 
 /**
  *  Delete a group
@@ -1618,6 +1679,26 @@ extern NSString * _Nonnull const TTKitErrorDomain;
                     success:(void(^ _Nullable)(NSArray * _Nullable roles, NSDictionary * _Nullable resultMetadata))success
                     failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
 
+/**
+ *  Search Tags in an organization.
+ *
+ *  Returns an NSArray of TTTag objects which passes one of the following string comparisons:
+ *
+ *  1. Its displayName property contains the search string.
+ * *
+ *  @param searchString          The search term (NSString).
+ *  @param filterColorTokens     An Array of Color tokens (NSString) you wish to filter by.
+ *  @param organizationToken     The organization token you wish to perform the search, will default to current organization if not provided.
+ *  @param continuationToken     Pass in a continuation token to paginate results.
+ *  @param completionBlock Block which should handle the returned TTTag array. If no tags are found, returned array will be empty. The resultMetadata will contain some extra information about the search results such as
+ *  the total number of possible results and pagniation data
+ */
+- (id)searchTags:(NSString * _Nullable)searchString
+filterColorTokens:(NSArray * _Nullable)colorTokens
+organizationToken:(NSString * _Nonnull)organizationToken
+continuationToken:(NSString * _Nullable)continuationToken
+         success:(void(^_Nullable)(NSArray <TTTag *>* _Nullable tags, NSDictionary * _Nullable resultMetadata))success
+         failure:(void (^_Nullable)(NSError * _Nullable error))failure;
 
 /**
  *  Retrieve a role for the provided token.
@@ -1683,6 +1764,22 @@ extern NSString * _Nonnull const TTKitErrorDomain;
 ///-------------------------------------------------------
 /// @name Handling Message Attachment
 ///-------------------------------------------------------
+
+/**
+ Checks if the mime type is a supported type for attachments
+
+ @param type mime type of the attachment
+ @return A BOOL indicating if type is supported.
+ */
+- (BOOL)isMimeTypeSupported:(NSString *_Nonnull)type;
+
+/**
+ Get file extension string for a given mime type
+
+ @param type MIME type of attachment
+ @return corresponding file extension for attachment
+ */
+- (NSString *_Nullable)fileExtensionForMimeType:(NSString *_Nonnull)type;
 
 /**
  Queue a message attachment for download.

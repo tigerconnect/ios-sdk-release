@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TTParty.h"
 
-@class TTMessage, TTUser, TTRole;
+@class TTMessage, TTUser, TTRole, TTEscalation;
 
 /**
  *  TTGroup is a class that represents a TigerText Group or Room.
@@ -41,6 +41,9 @@
  */
 @property (nullable, nonatomic, retain) TTMessage *message;
 
+/**
+ * BOOL value to indicate whether to show history in the group when a new member joins.
+ */
 @property (nullable, nonatomic, retain) NSNumber *replayHistory;
 
 /**
@@ -68,13 +71,34 @@
  */
 @property (nullable, nonatomic, retain) TTUser *createdBy;
 
+@property (nullable, nonatomic, retain) TTEscalation *escalation;
+
+/**
+ * NSDictionary storing information about users in the group as roles.
+ * @discussion A user is a "proxiedMember" if the user is in the group as the owner of a role.
+ */
+@property (nullable, nonatomic, retain) NSObject *proxiedMembers;
+
 /**
  *  Returns list of members who are Roles
  */
 - (NSSet<TTRole *> * _Nullable)roleMembers;
 
+/**
+ * Checks whether the given user token belongs to a member of the group.
+ */
 - (BOOL)isUserTokenPartOfGroup:(NSString * _Nonnull)token;
 
+/**
+ * Checks whether the given user is a member of the group.
+ */
 - (BOOL)isUserPartOfGroup:(TTUser * _Nonnull)user;
+
+/**
+ * Checks whether the given user is in the group as the user, and not as a role owner.
+ *
+ @return YES if the user's user token is not in `proxiedMembers`.
+ */
+- (BOOL)isUserInGroupNotAsRoleOwner:(TTUser * _Nonnull)user;
 
 @end

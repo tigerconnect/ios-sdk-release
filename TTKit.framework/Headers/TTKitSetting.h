@@ -42,6 +42,12 @@ typedef NS_ENUM(NSInteger, TTKitSetting)
     TTKitSettingClickToCallOutGoingContactToken,
     TTKitSettingAlertsService,
     TTKitSettingPatientCare,
-    TTKitSettingVoipService
+    TTKitSettingVoipService,
+    TTKitSettingVideoCallService,
+    TTKitSettingNoAttachments,
+    TTKitSettingNoPhotos,
+    TTKitSettingEscalations,
+    TTKitSettingGroupAudioCallService,
+    TTKitSettingGroupVideoCallService,
 
 };

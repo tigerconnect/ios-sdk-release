@@ -99,10 +99,6 @@
  */
 - (void)setMessageAttachmentWithFilePath:(NSString *_Nonnull)filePath mimeType:(NSString *_Nonnull)mimeType;
 
-/**
- *  Use this method to find out what attachment mime types TTMessageRequest supports
- */
-- (NSArray *_Nonnull)supportedAttachmentMimeTypes;
 
 /**
  *  Add message metadata.

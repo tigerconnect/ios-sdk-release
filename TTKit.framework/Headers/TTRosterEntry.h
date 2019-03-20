@@ -107,9 +107,14 @@
 @property (nullable, nonatomic, retain) NSString * autoforwardReceiver;
 
 /**
- *  Indicates if the Roster has unread priority messages.
+ *  Indicates if the Roster has a higher priorty (common scenarios will be unread priority messages or escalation groups).
  */
 @property (nullable, nonatomic, retain) NSNumber *priority;
+
+/**
+ *  Indicates if the Roster has unread priority messages.
+ */
+@property (nullable, nonatomic, retain) NSNumber *hasUnreadPriorityMessage;
 
 /**
  *  Convenience getter for autoforwardReceiver is non-empty, when autoforward is enabled.

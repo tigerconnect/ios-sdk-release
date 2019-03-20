@@ -99,7 +99,10 @@ typedef void (^TTRoleSelectorHandler)(BOOL cancelled, TTRole *_Nullable selected
  **/
 - (NSSet<TTRole *> *)actingRolesForGroup:(TTGroup *)group organizationToken:(NSString *)organizationToken;
 
-
+/**
+ An array of tokens for all acting roles of the local user.
+ 
+ **/
 - (NSArray *)roleTokens;
 
 @end

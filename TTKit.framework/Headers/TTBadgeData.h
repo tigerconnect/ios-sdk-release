@@ -41,6 +41,12 @@
 @property (nonatomic, assign) NSUInteger unreadPatientCareCount;
 
 /**
+ *  Active Escalations messages count.
+ */
+@property (nonatomic, assign) NSUInteger activeEscalationsCount;
+
+
+/**
  *  A conversation hash to which this instance relates. Will be nil if instance relates to an organization.
  */
 @property (nonatomic, strong) NSString *conversationHash;
@@ -63,6 +69,14 @@
 @protocol TTBadgeDataObserver <NSObject>
 
 @optional
-- (void)badgeDataChanged:(NSUInteger)unreadCount unreadAlertsCount:(NSUInteger)unreadAlertsCount unreadPatientCareCount:(NSUInteger)unreadPatientCareCount;
+/**
+ * Optional delegate function that gets called anytime there is a change in any one of the counts.
+
+ @param unreadCount Unread message count.
+ @param unreadAlertsCount Unread nurse call alerts count.
+ @param unreadPatientCareCount Unread patient care count.
+ @param activeEscalationCount Unread active escalation count.
+ */
+- (void)badgeDataChanged:(NSUInteger)unreadCount unreadAlertsCount:(NSUInteger)unreadAlertsCount unreadPatientCareCount:(NSUInteger)unreadPatientCareCount activeEscalationCount:(NSUInteger)activeEscalationCount;
 
 @end
