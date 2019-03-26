@@ -282,6 +282,8 @@
 		
 		<option value="//api/name/messageStatusFetchControllerForMessageToken:delegate:">- messageStatusFetchControllerForMessageToken:delegate:</option>
 		
+		<option value="//api/name/muteEntity:organizationToken:forMinutes:withCompletionHandler:">- muteEntity:organizationToken:forMinutes:withCompletionHandler:</option>
+		
 		<option value="//api/name/nameForParty:">- nameForParty:</option>
 		
 		<option value="//api/name/objectFromDiskCache:">- objectFromDiskCache:</option>
@@ -425,6 +427,8 @@
 		<option value="//api/name/totalNumberOfConversationsWithUnreadMessages">- totalNumberOfConversationsWithUnreadMessages</option>
 		
 		<option value="//api/name/unlinkEmail:success:failure:">- unlinkEmail:success:failure:</option>
+		
+		<option value="//api/name/unmuteEntity:organizationToken:withCompletionHandler:">- unmuteEntity:organizationToken:withCompletionHandler:</option>
 		
 		<option value="//api/name/unsetAutoforwardForOrganizationToken:success:failure:">- unsetAutoforwardForOrganizationToken:success:failure:</option>
 		
@@ -12153,6 +12157,145 @@ but will will fire the completion block very quickly in the event that a network
 </div>
 						</div>
 						
+
+						<a title="Mute" name="task_Mute"></a>
+						<h2 class="task-title">Mute</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/muteEntity:organizationToken:forMinutes:withCompletionHandler:" title="muteEntity:organizationToken:forMinutes:withCompletionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/muteEntity:organizationToken:forMinutes:withCompletionHandler:">&ndash;&nbsp;muteEntity:organizationToken:forMinutes:withCompletionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Mutes conversation for a set amount of time.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id _Nullable)muteEntity:(NSManagedObject *_Nonnull)<em>entity</em> organizationToken:(NSString *_Nonnull)<em>organizationToken</em> forMinutes:(NSUInteger)<em>minutes</em> withCompletionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entity</code></th>
+						<td><p>The target of the conversation that is being muted.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>organizationToken</code></th>
+						<td><p>The organization token for the conversation.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>minutes</code></th>
+						<td><p>The amount of time in minutes to mute the conversation.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>Completion block invoked when muting call is complete, passing back any errors that occurred.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTKitClass.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unmuteEntity:organizationToken:withCompletionHandler:" title="unmuteEntity:organizationToken:withCompletionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unmuteEntity:organizationToken:withCompletionHandler:">&ndash;&nbsp;unmuteEntity:organizationToken:withCompletionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unmutes conversation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id _Nullable)unmuteEntity:(NSManagedObject *_Nonnull)<em>entity</em> organizationToken:(NSString *_Nonnull)<em>organizationToken</em> withCompletionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>entity</code></th>
+						<td><p>The target of the conversation that is being unmuted.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>organizationToken</code></th>
+						<td><p>The organization token for the conversation.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>Block that is invoked when the unmuting call is complete, passing back any errors that occurred.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TTKitClass.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -12165,7 +12308,7 @@ but will will fire the completion block very quickly in the event that a network
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 TigerText. All rights reserved. Updated: 2019-03-20</p>
+						<p class="copyright">Copyright &copy; 2019 TigerText. All rights reserved. Updated: 2019-03-26</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

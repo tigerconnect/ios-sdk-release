@@ -1,5 +1,12 @@
 # TigerConnect Change Log
 
+## 1.8.1
+
+* Mute Conversations
+* Search Groups
+* Roles
+* Bug fixes and performance improvments
+
 ## 1.7
 
 * Bug fixes and performance improvments

@@ -2244,4 +2244,29 @@ continuationToken:(NSString * _Nullable)continuationToken
 - (id _Nullable)refreshMessageStatusWithMessageToken:(NSString * _Nonnull)messageToken
                                              success:(void(^ _Nullable)(TTMessage * _Nullable message))success
                                              failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
+
+
+///-------------------------------------------------------
+/// @name Mute
+///-------------------------------------------------------
+
+/**
+ Mutes conversation for a set amount of time.
+
+ @param entity The target of the conversation that is being muted.
+ @param organizationToken The organization token for the conversation.
+ @param minutes The amount of time in minutes to mute the conversation.
+ @param completionHandler Completion block invoked when muting call is complete, passing back any errors that occurred.
+ */
+- (id _Nullable)muteEntity:(NSManagedObject * _Nonnull)entity organizationToken:(NSString * _Nonnull)organizationToken forMinutes:(NSUInteger)minutes withCompletionHandler:(void(^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ Unmutes conversation.
+
+ @param entity The target of the conversation that is being unmuted.
+ @param organizationToken The organization token for the conversation.
+ @param completionHandler Block that is invoked when the unmuting call is complete, passing back any errors that occurred.
+ */
+- (id _Nullable)unmuteEntity:(NSManagedObject * _Nonnull)entity organizationToken:(NSString * _Nonnull)organizationToken withCompletionHandler:(void(^ _Nullable)(NSError * _Nullable error))completionHandler;
+
 @end
