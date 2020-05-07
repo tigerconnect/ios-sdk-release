@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TTParty.h"
 
-@class TTMessage, TTUser, TTRole, TTEscalation;
+@class TTMessage, TTUser, TTRole, TTEscalation, TTPatient, TTTeam;
 
 /**
  *  TTGroup is a class that represents a TigerText Group or Room.
@@ -79,6 +79,10 @@
  */
 @property (nullable, nonatomic, retain) NSObject *proxiedMembers;
 
+@property (nullable, nonatomic, retain) TTPatient *patient;
+
+@property (nullable, nonatomic, retain) TTTeam *team;
+
 /**
  *  Returns list of members who are Roles
  */
@@ -100,5 +104,19 @@
  @return YES if the user's user token is not in `proxiedMembers`.
  */
 - (BOOL)isUserInGroupNotAsRoleOwner:(TTUser * _Nonnull)user;
+
+/**
+ * Checks whether this group belongs to an activated team
+ *
+ @return YES if this group belongs to an activated team.
+ */
+- (BOOL)isActivatedTeamGroup;
+
+/**
+ * Checks whether this group is an intra-team group.
+ *
+ @return YES if this group is an intra-team group.
+ */
+- (BOOL)isIntraTeamGroup;
 
 @end

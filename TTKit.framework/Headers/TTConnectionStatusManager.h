@@ -13,22 +13,33 @@
 // Clients should subscribe to TTConnectionStatusChangedNotification
 extern NSString * const TTConnectionStatusChangedNotification;
 
+/**
+ *  Enumeration describing states of connectivity
+ */
 typedef NS_ENUM(NSUInteger, TTConnectionStatus) {
-    
-    // Initializing status should be ignored, clients should observe changes via NSNotificationCenter
-    // Transitions to Connecting or No Connectivity
+
+    /**
+     *  Initializing status should be ignored, clients should observe changes via NSNotificationCenter.
+     *  Transitions to Connecting or No Connectivity
+     */
     TTConnectionStatusInitializing = 0,
     
-    // Connected status represents server-side event (SSE) socket is opening
-    // Transitions to Connected or LowConnectivity
+    /**
+     *  Connected status represents server-side event (SSE) socket is opening.
+     *  Transitions to Connected or LowConnectivity.
+     */
     TTConnectionStatusConnecting,
     
-    // Connecting status represents server-side event (SSE) stream is receiving data
-    // Transitions to Connecting, LowConnectivity, NoConnectivity
+    /**
+     *  Connecting status represents server-side event (SSE) stream is receiving data.
+     *  Transitions to Connecting, LowConnectivity, NoConnectivity
+     */
     TTConnectionStatusConnected,
-            
-    // No Connectivity status occurs when system indicates no internet connection exists
-    // Transitions to Connecting
+    
+    /**
+     *  No Connectivity status occurs when system indicates no internet connection exists.
+     *  Transitions to Connecting
+     */
     TTConnectionStatusNoConnectivity,
 };
 

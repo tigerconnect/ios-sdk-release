@@ -8,16 +8,59 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  Enumeration for download status.
+ */
 typedef NS_ENUM(NSUInteger, TTDownloadItemState) {
+    
+    /**
+     *  The initial state of `TTDownloadDataRootObserver` and `TTDownloadData` when it first gets initialized.
+     */
     TTDownloadItemStateUnknown = 0,
-    TTDownloadItemStateDeleted,
+    
+    /**
+     *
+     TTDownloadItemStateDeleted,
+     */
+    
+    /**
+     *
     TTDownloadItemStateRetrieving,
+     */
+    
+    /**
+     *  The initial state of `TTDownloadDataManager` when download is has started.
+     */
     TTDownloadItemStateDownloading,
+    
+    /**
+     *
     TTDownloadItemStatePaused,
-    TTDownloadItemStateProcessing,
+     */
+    
+    /**
+     *
+     TTDownloadItemStateProcessing,
+     */
+    
+    /**
+     *  The state where an error has occurred when saving downloaded data to disk.
+     */
     TTDownloadItemStateErrorOccured,
-    TTDownloadItemStateNotEnoughStorageInCacheFolder,
+    
+    /**
+     *
+     TTDownloadItemStateNotEnoughStorageInCacheFolder,
+     */
+    
+    /**
+     *
     TTDownloadItemStateNotEnoughStorageOnDisk,
+     */
+    
+    /**
+     *  The state once a download is successfully saved to disk.
+     */
     TTDownloadItemStateFinished,
 };
 
@@ -62,6 +105,7 @@ typedef NS_ENUM(NSUInteger, TTDownloadItemState) {
 /**
  * A block that gets invoked any time that the download state changes.
  * @param TTDownloadItemState New download state.
+ * @see `TTDownloadItemState`
  */
 @property (nonatomic, copy) void (^downloadStateChangedBlock)(TTDownloadItemState);
 

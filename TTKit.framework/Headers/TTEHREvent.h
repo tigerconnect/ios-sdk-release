@@ -1,5 +1,5 @@
 //
-//  TTEHREvent+CoreDataClass.h
+//  TTEHREvent.h
 //  TTKit
 //
 //  Created by Oren Zitoun on 6/29/17.

@@ -1,5 +1,5 @@
 //
-//  TTEscalationPolicy+CoreDataClass.h
+//  TTEscalationPolicy.h
 //  TTKitTests
 //
 //  Created by Oren Zitoun on 11/28/18.
@@ -16,8 +16,7 @@
 
 /**
  * TTEscalationPolicy contains the rules for escalated messages sent to a specific role.
- * @discussion
- * Rules include how long to wait before escalating to the backup recipients, whom to message after the current recipient did not respond, and how long the group is kept alive after the escalation has resolved.
+ * @note Rules include how long to wait before escalating to the backup recipients, whom to message after the current recipient did not respond, and how long the group is kept alive after the escalation has resolved.
  */
 @interface TTEscalationPolicy : NSManagedObject
 

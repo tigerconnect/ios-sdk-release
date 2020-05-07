@@ -49,4 +49,9 @@ FOUNDATION_EXPORT const unsigned char TTKitVersionString[];
 #import <TTKit/TTEscalation.h>
 #import <TTKit/TTDetectedData.h>
 #import <TTKit/TTEscalationPolicy.h>
+#import <TTKit/TTPatient.h>
+#import <TTKit/TTPatientContact.h>
+#import <TTKit/TTPatientForwardMessageMetadata.h>
+#import <TTKit/TTTeam.h>
+#import <TTKit/TTTeamRequest.h>
 

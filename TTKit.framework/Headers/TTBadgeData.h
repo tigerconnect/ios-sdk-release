@@ -11,12 +11,14 @@
 @protocol TTBadgeDataObserver;
 
 /**
- *  TTBadgeData contains the unread count for a specific conversation (on which token property will be nil) or for all conversations related to a specific organization.
+ *  TTBadgeData contains the unread count for a specific conversation or for all conversations related to a specific organization.
+ *  @warning Once an observer is added with `-addObserver:`, the observer must be removed by calling `-removeObserver:` before the observer is deallocated.
  */
 @interface TTBadgeData : NSObject 
 
 /**
- *  An organization's token. Will be nil if this instance relates to a specific conversation.
+ *  An organization's token.
+ *  @note This property will be nil if this instance relates to a specific conversation.
  */
 @property (nonatomic, strong) NSString *token;
 
@@ -45,14 +47,26 @@
  */
 @property (nonatomic, assign) NSUInteger activeEscalationsCount;
 
+/**
+ *  Total unread patient network count.
+ */
+@property (nonatomic, assign) NSUInteger unreadPatientNetworkCount;
 
 /**
- *  A conversation hash to which this instance relates. Will be nil if instance relates to an organization.
+ *  Total unread patient network count.
+ */
+@property (nonatomic, assign) NSUInteger unreadProviderNetworkCount;
+
+/**
+ *  A conversation hash to which this instance relates.
+ *  @note This property will be nil if the instance relates to an organization.
  */
 @property (nonatomic, strong) NSString *conversationHash;
 
+- (BOOL)hasUnreadCount;
+
 /**
- *  Add an observer to changes.
+ *  Add an observer to listen for changes.
  */
 - (void)addObserver:(id<TTBadgeDataObserver>)observer;
 
@@ -76,7 +90,9 @@
  @param unreadAlertsCount Unread nurse call alerts count.
  @param unreadPatientCareCount Unread patient care count.
  @param activeEscalationCount Unread active escalation count.
+ @param unreadPatientNetworkCount Unread patient network messages count.
+ @param unreadProviderNetworkCount Unread provider network messages count.
  */
-- (void)badgeDataChanged:(NSUInteger)unreadCount unreadAlertsCount:(NSUInteger)unreadAlertsCount unreadPatientCareCount:(NSUInteger)unreadPatientCareCount activeEscalationCount:(NSUInteger)activeEscalationCount;
+- (void)badgeDataChanged:(NSUInteger)unreadCount unreadAlertsCount:(NSUInteger)unreadAlertsCount unreadPatientCareCount:(NSUInteger)unreadPatientCareCount activeEscalationCount:(NSUInteger)activeEscalationCount unreadPatientNetworkCount:(NSUInteger)unreadPatientNetworkCount unreadProviderNetworkCount:(NSUInteger)unreadProviderNetworkCount;
 
 @end

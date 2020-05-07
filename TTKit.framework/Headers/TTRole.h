@@ -86,4 +86,7 @@
  */
 @property (nullable, nonatomic, retain) TTEscalation *escalationOriginalTarget;
 
+@property (nullable, nonatomic, retain) NSSet<TTCallLog *> *callLogCallerProxy;
+@property (nullable, nonatomic, retain) NSSet<TTCallLog *> *callLogTargetProxy;
+
 @end

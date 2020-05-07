@@ -12,7 +12,8 @@
 @class TTMessage;
 
 /**
- *  TTAttachmentDescriptor describes an attachement added to a specific TTMessage.
+ *  TTAttachmentDescriptor describes an attachment added to a specific TTMessage.
+ *  @note For supported attachment types, see `TTAttachmentType`, and for supported MIME types, see `TTAttachmentDescriptor.mimeType`.
  */
 @interface TTAttachmentDescriptor : NSManagedObject
 
@@ -22,7 +23,7 @@
 @property (nullable, nonatomic, retain) NSNumber * index;
 
 /**
- *  Is attachment downloaded and stored localy. Boolean value.
+ *  Boolean value to indicate whether attachment is downloaded and stored locally.
  */
 @property (nullable, nonatomic, retain) NSNumber * isDownloaded;
 
@@ -33,6 +34,7 @@
 
 /**
  *  Attachment MIME type.
+ *  @note Supported MIME types include ```image/jpeg, image/pjpeg, image/png, image/x-png, image/gif, image/bmp, audio/mp4, audio/wav, audio/x-wav, audio/mpeg, audio/x-m4a, audio/mp3, video/mp4, video/x-m4v, video/quicktime, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation```
  */
 @property (nonnull, nonatomic, retain) NSString * mimeType;
 
@@ -42,7 +44,9 @@
 @property (nullable, nonatomic, retain) NSNumber * size;
 
 /**
- *  Attachment type. See TTAttachmentType.
+ *  Attachment type.
+ *
+ *  @see `TTAttachmentType`.
  */
 @property (nonnull, nonatomic, retain) NSNumber * type;
 

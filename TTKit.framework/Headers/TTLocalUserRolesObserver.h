@@ -73,6 +73,8 @@ typedef void (^TTRoleSelectorHandler)(BOOL cancelled, TTRole *_Nullable selected
  */
 - (nullable UIAlertController *)roleSelectorAlertWithTitle:(nullable NSString *)title handler:(TTRoleSelectorHandler)handler rosterEntry:(TTRosterEntry *)rosterEntry;
 
+- (void)validateRolesAndDisplayAlertController:(void(^_Nullable)(NSArray * _Nullable roles))completion organizationToken:(NSString * _Nonnull)organizationToken;
+
 #endif
 
 /**

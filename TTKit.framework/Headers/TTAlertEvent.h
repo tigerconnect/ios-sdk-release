@@ -1,5 +1,5 @@
 //
-//  TTAlertEvent+CoreDataClass.h
+//  TTAlertEvent.h
 //  TTKit
 //
 //  Created by Oren Zitoun on 10/27/17.
@@ -18,11 +18,10 @@
 @interface TTAlertEvent : NSManagedObject
 
 /**
- * NSDictionary that contains information about what to display in the alert event message.
- * @discussion
- * `data["components"]` is a NSArray of NSDictionaries that contain components of the alert event message.
+ * NSDictionary that contains information about what to display in the alert event message.
+ * @note `data["components"]` is a NSArray of NSDictionaries that contain components of the alert event message.
  * Each component dictionary should have "type" as key to indicate what type of content to display.
- * Possible values for `componentDictionary["type"]`: "nurse_header", "text_view", "bold_text_view", "completed_item", "ehr_action_item", "ehr_bold_text_view", "ehr_header_generic", "ehr_text_view", "table_item", "escalate_header", "two_button_view", "role_info", "button_view"
+ * Possible values for `componentDictionary["type"]`: `nurse_header`, `text_view`, `bold_text_view`, `completed_item`, `ehr_action_item`, `ehr_bold_text_view`, `ehr_header_generic`, `ehr_text_view`, `table_item`, `escalate_header`, `two_button_view`, `role_info`, `button_view`
  *
  * Component dictionary will also contain information about the configuration of the views.
  */

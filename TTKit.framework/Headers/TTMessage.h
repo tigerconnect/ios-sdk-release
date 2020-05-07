@@ -16,6 +16,12 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
     TTMessageTypeAlert,
     TTMessageTypePatientCare,
     TTMessageTypeRoleAwayResponse,
+    TTMessageTypePatientNetwork,
+    TTMessageTypeLocalUnreadIndicator,
+    TTMessageTypePatientNetworkAutomatedResponse,
+    TTMessageTypePatientNetworkForwardedToProvider,
+    TTMessageTypeTeamRequest,
+    TTMessageTypeSystem,
 };
 
 typedef NS_ENUM(NSInteger, TTMessagePriority) {
@@ -24,7 +30,7 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
     TTMessagePriorityEscalation = 2,
 };
 
-@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser, TTRole, TTEHREvent, TTAlertEvent, TTEscalation, TTDetectedData;
+@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser, TTRole, TTEHREvent, TTAlertEvent, TTEscalation, TTDetectedData, TTTeamRequest;
  
 /**
  *  A TTMessage object represents a message.
@@ -240,5 +246,15 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
  * A BOOL value indicating whether the message has been processed for detectedData already.
  */
 @property (nonnull, nonatomic, retain) NSNumber *didProcessDetectedData;
+
+/**
+ * sectionDate is being used to section message FetchedResultsController reuslts into section by day.
+ */
+@property (nullable, nonatomic, retain) NSDate *sectionDate;
+
+/**
+ *  Team Request Object.
+ */
+@property (nullable, nonatomic, retain) TTTeamRequest *teamRequest;
 
 @end

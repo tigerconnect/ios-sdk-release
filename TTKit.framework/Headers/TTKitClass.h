@@ -13,6 +13,7 @@
 #import "TTKitConfiguration.h"
 
 @class TTContact, TTBadgeData, TTDownloadData, TTGroup, TTMessageRequest, TTOrganization, TTParty, TTPresenceData, TTRole, TTRosterEntry, TTShift, TTUploadData, TTUser, TTTag;
+@protocol TTAttachmentDownloadObserver;
 
 /**
  *  TTKitError.
@@ -95,22 +96,6 @@ extern NSString * _Nonnull const TTKitErrorDomain;
 ///-------------------------------------------------------
 
 /**
- *   Initializing TTKit.
- *   Initializing TTKit, pointing to the production environment. This method should be called in the App Delegate.
- *   @param agent Your unique client agent (provided by TigerText).
- */
-
-- (void)initializeWithAgent:(NSString * _Nullable)agent DEPRECATED_MSG_ATTRIBUTE("Use initializeWithConfiguration:");
-
-/**
- *  Initializing TTKit.
- *  This method should be called in the App Delegate.
- *  @param agent       Your unique client agent (provided by TigerText).
- *  @param environment Production or Test
- */
-- (void)initializeWithAgent:(NSString * _Nullable)agent environment:(TTKitEnvironment)environment DEPRECATED_MSG_ATTRIBUTE("Use initializeWithConfiguration:");
-
-/**
  *  Initializing TTKit.
  *  This method should be called in the App Delegate.
  *  @param configuration      TTKitConfiguration object
@@ -135,7 +120,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  */
 - (void)signupWithUserId:(NSString * _Nonnull)userId
                 password:(NSString * _Nonnull)password
-                 success:(void(^ _Nullable)(TTUser * _Nonnull newUser, NSString * _Nullable validationPhoneNumber, NSString * _Nullable validationText))success
+                 success:(void(^ _Nullable)(TTUser * _Nonnull newUser, NSString * _Nullable validationPhoneNumber, NSString * _Nullable validationText, BOOL inboundSmsVerification, BOOL disableSmsValidation, BOOL extAuth))success
                  failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
 
 /**
@@ -669,7 +654,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  @return An 'NSFetchedResultsController' Object.
  
  */
-- (NSFetchedResultsController *)publicGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+- (NSFetchedResultsController * _Nullable)publicGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate> _Nullable)delegate;
 
 /**
  Private Groups fetchController will return all private groups related to the current organization with
@@ -680,7 +665,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  @return An 'NSFetchedResultsController' Object.
  
  */
-- (NSFetchedResultsController *)privateGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+- (NSFetchedResultsController * _Nullable)privateGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate> _Nullable)delegate;
 
 /**
  Broadcast List Groups fetchController will return all broadcast list groups related to the current organization with
@@ -691,7 +676,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  @return An 'NSFetchedResultsController' Object.
  
  */
-- (NSFetchedResultsController *)broadcastListGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+- (NSFetchedResultsController * _Nullable)broadcastListGroupsFetchControllerWithDelegate:(id<NSFetchedResultsControllerDelegate> _Nullable)delegate;
 
 /**
  *  Create a new TTGroup.
@@ -997,7 +982,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  *  @param completionBlock Block which should handle the returned TTGroup array. If no user is found, returned array will be empty.
  *  @param failure      Failure block, returns an NSError.
  */
-- (void)searchPublicGroups:(NSString * _Nonnull)search
+- (void)searchPublicGroups:(NSString * _Nullable)search
          continuationToken:(NSString * _Nullable)continuationToken
                    success:(void(^ _Nullable)(NSArray * _Nullable groups, NSDictionary * _Nullable resultMetadata))completionBlock
                    failure:(void(^ _Nullable)(NSError * _Nullable error))failure;
@@ -1367,8 +1352,29 @@ extern NSString * _Nonnull const TTKitErrorDomain;
                 asRole:(TTRole * _Nullable)role
              recipient:(NSString * _Nonnull)recipientToken
        priorityMessage:(TTMessagePriority)priorityMessage
-               success:(void(^ _Nullable)(void))success
+               success:(void(^ _Nullable)(TTGroup * _Nullable group))success
                failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
+
+
+/**
+ *  Forward messages to a user.
+ *
+ *  @param messageTokens message tokens.
+ *  @param role The TTRole object you wish to send as
+ *  @param recipientToken user or group token.
+ *  @param priorityMessage priority type for this message.
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ *
+ */
+
+- (void)forwardMessages:(NSArray<NSString *> *_Nonnull)messageTokens
+                 asRole:(TTRole *_Nullable)roleSender
+              recipient:(NSString *_Nonnull)recipient
+        priorityMessage:(TTMessagePriority)priority
+                success:(void(^_Nullable)(TTGroup *_Nullable group))success
+                failure:(void (^_Nullable)(NSError *_Nullable error))failure;
+
 
 /**
  *  Forward a message to group of users, creating a group in the process.
@@ -1384,6 +1390,21 @@ extern NSString * _Nonnull const TTKitErrorDomain;
                toUsers:(NSArray * _Nonnull)users
                success:(void(^ _Nullable)(TTGroup * _Nullable group))success
                failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
+
+/**
+ *  Forward messages to group of users, creating a group in the process.
+ *
+ *  @param messageTokens message tokens.
+ *  @param users array of users to send to
+ *  @param success Success block.
+ *  @param failure Failure block, provides an NSError with a description of the issue.
+ */
+
+- (void)forwardMessages:(NSArray<NSString *> *_Nonnull)messageTokens
+                 asRole:(TTRole * _Nullable)asRole
+                toUsers:(NSArray * _Nonnull)users
+                success:(void(^ _Nullable)(TTGroup * _Nullable group))success
+                failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
 
 /**
  *  Send a message using TTMessageRequest object.
@@ -1442,7 +1463,14 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  @param message TTMessage object.
  
  */
-- (void)markMessageAsRead:(TTMessage * _Nonnull)message;
+- (void)markMessageAsRead:(TTMessage * _Nonnull)message DEPRECATED_MSG_ATTRIBUTE("Use markMessagesAsRead:");
+
+/**
+ Mark message statuses as Read
+
+ @param messages Array of TTMessage objects.
+ */
+- (void)markMessagesAsRead:(NSArray<TTMessage *> *_Nonnull)messages;
 
 /**
  Return all the unread messages for a specific conversation using the default NSManagedObjectContext.
@@ -1491,6 +1519,13 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  *  @param message a TTMessage object to be deleted.
  */
 - (void)deleteMessage:(TTMessage * _Nonnull)message;
+
+/**
+ *  Delete multiple TTMessages.
+ *
+ *  @param messages an array of TTMessage objects to be deleted.
+ */
+- (void)deleteMessages:(NSArray<TTMessage *> *_Nonnull)messages;
 
 /**
  Delete all messages for roster entry.
@@ -1693,7 +1728,7 @@ extern NSString * _Nonnull const TTKitErrorDomain;
  *  @param completionBlock Block which should handle the returned TTTag array. If no tags are found, returned array will be empty. The resultMetadata will contain some extra information about the search results such as
  *  the total number of possible results and pagniation data
  */
-- (id)searchTags:(NSString * _Nullable)searchString
+- (id _Nullable)searchTags:(NSString * _Nullable)searchString
 filterColorTokens:(NSArray * _Nullable)colorTokens
 organizationToken:(NSString * _Nonnull)organizationToken
 continuationToken:(NSString * _Nullable)continuationToken
@@ -1789,7 +1824,25 @@ continuationToken:(NSString * _Nullable)continuationToken
  @param message message with attachment object.
  */
 
-- (void)queueMessageForAttachmentDownload:(TTMessage * _Nonnull)message;
+- (void)queueMessageForAttachmentDownload:(TTMessage * _Nonnull)message DEPRECATED_MSG_ATTRIBUTE("Use queueMessageForAttachmentDownload:observer:");
+
+/**
+ Queue a message attachment for download.
+ 
+ If the message attachment object is empty or exists on disk the download will be aborted.
+ 
+ @param message message with attachment object.
+ @param observer an TTAttachmentDownloadObserver to observe progress/state of the attachment download.
+ */
+- (void)queueMessageForAttachmentDownload:(TTMessage * _Nonnull)message observer:(id<TTAttachmentDownloadObserver> _Nullable)observer;
+
+/**
+ Remove an observer from the list of observers for message attachment download.
+ 
+ @param observer an TTAttachmentDownloadObserver to observe progress/state of the attachment download.
+ @param message message with attachment object.
+ */
+- (void)removeAttachmentObserver:(id<TTAttachmentDownloadObserver> _Nonnull)observer forMessage:(TTMessage * _Nonnull)message;
 
 /**
  Checks if the message attachment exists on disk.

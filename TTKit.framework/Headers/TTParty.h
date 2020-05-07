@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TTMessage, TTMetadata, TTRosterEntry;
+@class TTMessage, TTMetadata, TTRosterEntry, TTCallLog;
 
 /**
  *  TTParty is an abstract class, inherited by TTUser and TTGroup.
@@ -100,6 +100,16 @@
  *  Indicates if TTParty belongs to any service (like alerts).
  */
 @property (nullable, nonatomic, retain) NSString *service;
+
+/**
+ *  Inverse relationship from TTCallLog caller.
+ */
+@property (nullable, nonatomic, retain) NSSet<TTCallLog *> *callLogCaller;
+
+/**
+ *  Inverse relationship from TTCallLog taget.
+ */
+@property (nullable, nonatomic, retain) NSSet<TTCallLog *> *callLogTarget;
 
 @end
 

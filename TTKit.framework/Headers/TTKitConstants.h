@@ -16,6 +16,7 @@ FOUNDATION_EXPORT NSString *const kTTKitUnreadMessagesCountChangedNotification;
 FOUNDATION_EXPORT NSString *const kTTKitMessageWasReceivedNotification;
 FOUNDATION_EXPORT NSString *const kTTKitMessageWasDeletedNotification;
 FOUNDATION_EXPORT NSString *const kTTKitMessageWillDeleteNotification; // {userinfo: token} message token
+FOUNDATION_EXPORT NSString *const kTTKitMessagesDidDeleteNotification; // {userinfo: tokens} message token
 FOUNDATION_EXPORT NSString *const kTTKitConnectionWasEstablishedNotification;
 FOUNDATION_EXPORT NSString *const kTTKitConnectionWasLostNotification;
 FOUNDATION_EXPORT NSString *const kTTKitConnectionIsConnectingNotification; // {userinfo: userToken} user token
@@ -23,7 +24,6 @@ FOUNDATION_EXPORT NSString *const kTTKitConnectionAuthenticationDidFailNotificat
 FOUNDATION_EXPORT NSString *const kTTKitReadyNotification;
 FOUNDATION_EXPORT NSString *const kTTKitUserDetailsWereDownloadedNotification;
 FOUNDATION_EXPORT NSString *const kTTKitUserDidUpdateChangeNotification;
-FOUNDATION_EXPORT NSString *const kTTKitMessageDidUpdateChangeNotification;
 FOUNDATION_EXPORT NSString *const kTTKitGroupDidUpdateChangeNotification;
 FOUNDATION_EXPORT NSString *const kTTKitReceivedMessageDidUpdateChangeNotification;
 FOUNDATION_EXPORT NSString *const kTTKitMessageAttachmentDownloadedNotification;
@@ -82,6 +82,7 @@ FOUNDATION_EXPORT NSString *const kTTKITUserAPNDeviceTokenKey;
 FOUNDATION_EXPORT NSString *const kTTKITUserVoipAPNDeviceTokenKey;
 
 FOUNDATION_EXPORT NSString *const kTTKitURLResponseKey;
+FOUNDATION_EXPORT NSString *const kTTKitURLErrorMessageKey;
 FOUNDATION_EXPORT NSString *const kTTKitTigerPageTokenProduction;
 FOUNDATION_EXPORT NSString *const kTTKitTigerPageTokenQA;
 FOUNDATION_EXPORT NSString *const kTTKitTigerPageTokenDev;
@@ -91,6 +92,10 @@ FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceRoleKey;
 FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceRoleAlertsKey;
 FOUNDATION_EXPORT NSString *const kTTKitFeatureServicePatientCareKey;
 FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceEscalationKey;
+FOUNDATION_EXPORT NSString *const kTTKitFeatureServicePatientMessagingKey;
+FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceTeamsKey;
+FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceTeamsIntraTeamKey;
+FOUNDATION_EXPORT NSString *const kTTKitFeatureServiceTeamsActivatedTeamKey;
 
 FOUNDATION_EXPORT NSString *const kTTKitEscalationDeletedNotification;
 FOUNDATION_EXPORT NSString *const kTTKitEscalationUpdatedNotification;
@@ -102,6 +107,9 @@ FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusAcknowledged;
 FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusCancelled;
 FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusNoResponse;
 FOUNDATION_EXPORT NSString *const kTTKitEscalationStatusConversationEscalated;
+
+FOUNDATION_EXPORT NSString *const kTTKitTeamRequestUpdatedNotification;
+FOUNDATION_EXPORT NSString *const kTTKitTeamRequestDeclinedNotification;
 
 FOUNDATION_EXPORT NSString *const kTTKitRoleTagUpdatedNotification;
 
@@ -131,5 +139,7 @@ FOUNDATION_EXPORT NSString *const kTTKitMimeTypeExcel;
 FOUNDATION_EXPORT NSString *const kTTKitMimeTypeSheet;
 FOUNDATION_EXPORT NSString *const kTTKitMimeTypePowerpoint;
 FOUNDATION_EXPORT NSString *const kTTKitMimeTypePresentation;
+
+FOUNDATION_EXPORT NSString *const kTTKitOrganizationsClickToCallContactsUpdatedNotification;
 
 @end
