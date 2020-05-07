@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description      = "Enhance your iOS apps with intelligent, secure messaging from TigerConnect"
   s.license          = 'Commercial'
   s.author           = { "Oren Zitoun" => "oren@tigertext.com" }
-  s.homepage         = "http://www.tigertext.com/tigerconnect/"
+  s.homepage         = "https://developer.tigertext.com/docs"
   s.requires_arc     = true
   s.source           = { :git => "https://github.com/tigerconnect/ios-sdk-release.git", :tag => s.version.to_s }
 
