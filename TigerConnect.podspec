@@ -9,6 +9,9 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.source           = { :git => "https://github.com/tigerconnect/ios-sdk-release.git", :tag => s.version.to_s }
 
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  
   s.platform     = :ios, '11.0'
   s.vendored_framework   = 'TTKit.framework'
   s.libraries = ["z"]
