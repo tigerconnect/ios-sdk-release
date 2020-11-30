@@ -21,7 +21,7 @@ TigerConnect iOS SDK can be installed directly into your application by importin
 ### Requirements
 
 The following are requirements for the TigerConnect iOS SDK.
-* iOS9
+* iOS11
 
 ### CocoaPods Installation
 
