@@ -74,6 +74,12 @@ FOUNDATION_EXPORT NSString *const kTTKitMessageStatusNew;
 FOUNDATION_EXPORT NSString *const kTTKitMessageStatusReceivedOnClient;
 FOUNDATION_EXPORT NSString *const kTTKitMessageStatusPendingUpdate;
 
+FOUNDATION_EXPORT NSString *const kTTKitScheduleMessageStatusQueued;
+FOUNDATION_EXPORT NSString *const kTTKitScheduleMessageStatusSent;
+FOUNDATION_EXPORT NSString *const kTTKitScheduleMessageStatusDelivered;
+FOUNDATION_EXPORT NSString *const kTTKitScheduleMessageStatusRead;
+FOUNDATION_EXPORT NSString *const kTTKitScheduleMessageStatusFailed;
+
 FOUNDATION_EXPORT NSString *const kTTKitContactsManagerLabelKey;
 FOUNDATION_EXPORT NSString *const kTTkitContactsManagerValueKey;
 

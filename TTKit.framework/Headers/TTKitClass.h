@@ -12,7 +12,7 @@
 #import "TTKitConstants.h"
 #import "TTKitConfiguration.h"
 
-@class TTContact, TTBadgeData, TTDownloadData, TTGroup, TTMessageRequest, TTOrganization, TTParty, TTPresenceData, TTRole, TTRosterEntry, TTShift, TTUploadData, TTUser, TTTag;
+@class TTContact, TTBadgeData, TTDownloadData, TTGroup, TTMessageRequest, TTOrganization, TTParty, TTPresenceData, TTRole, TTRosterEntry, TTShift, TTUploadData, TTUser, TTTag, TTPatient, TTPatientContact;
 @protocol TTAttachmentDownloadObserver;
 
 /**
@@ -2123,10 +2123,14 @@ continuationToken:(NSString * _Nullable)continuationToken
  *  Use this method when local user starts typing a message to another user.
  *
  *  @param receipentToken User token of recepient.
+ *  @param proxyToken  Role token of sender
+ *  @param organizationToken Current organization token of the sender
  *  @param success        Success block.
  *  @param failure        Failure block.
  */
 - (void)setIsTyping:(NSString * _Nonnull)receipentToken
+         proxyToken:(NSString * _Nullable)proxyToken
+  organizationToken:(NSString * _Nullable)organizationToken
             success:(void (^ _Nullable)(void))success
             failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
 
@@ -2134,10 +2138,12 @@ continuationToken:(NSString * _Nullable)continuationToken
  *  Use this method when local user finished typing a message to another user.
  *
  *  @param receipentToken User token of recepient.
+ *  @param organizationToken Current organization token of the sender
  *  @param success        Success block.
  *  @param failure        Failure block.
  */
 - (void)didEndTyping:(NSString * _Nonnull)receipentToken
+   organizationToken:(NSString * _Nullable)organizationToken
              success:(void (^ _Nullable)(void))success
              failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
 
@@ -2321,5 +2327,153 @@ continuationToken:(NSString * _Nullable)continuationToken
  @param completionHandler Block that is invoked when the unmuting call is complete, passing back any errors that occurred.
  */
 - (id _Nullable)unmuteEntity:(NSManagedObject * _Nonnull)entity organizationToken:(NSString * _Nonnull)organizationToken withCompletionHandler:(void(^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+
+
+///-------------------------------------------------------
+/// @name Video/Audio Call
+///-------------------------------------------------------
+
+/**
+ Start a Call.
+
+ @param participantIds Array of user ids you wish to make a call to.
+ @param organizationToken The organization token for the call.
+ @param payload A dictionary object you wish to attach to the call payload (will get delivered to recipients).
+ @param isVideo Indicates the call type, pass YES for Video call or NO for Audio call.
+ @param useProxyNumber use this BOOL to send the recipients an sms with a link to join the call.
+ @param success success return block, use accessToken and roomName to connect to the call via the TwilioVideo SDK, disabledParticipants are the participantIds that do not have voip calling enabled and will not be added to the call.
+ @param failure failure return block.
+
+ */
+
+- (void)startCall:(NSArray *_Nonnull)participantIds
+organizationToken:(NSString *_Nonnull)organizationToken
+          payload:(NSDictionary *_Nullable)payload
+          isVideo:(BOOL)isVideo
+   useProxyNumber:(BOOL)useProxyNumber
+          success:(void(^_Nullable)(NSString * _Nullable accessToken, NSString * _Nullable roomName, NSArray<NSString *> * _Nullable disabledParticipants))success
+          failure:(void (^_Nullable)(NSError * _Nullable error))failure;
+
+
+/**
+ End a Call.
+
+ @param roomName Twilio room name.
+ @param callId The TTCall id.
+ @param reason The reason for ending the call i.e, options are `declined`,  `answered`,  `unanswered`,  `remote_ended`,  `ended`.
+ @param payload A dictionary object you wish to attach to the call payload (will get delivered to recipients).
+ @param success success return block.
+ @param failure failure return block.
+
+ */
+
+- (void)endCall:(NSString * _Nonnull)roomName
+         callId:(NSString * _Nonnull)callId
+         reason:(NSString * _Nonnull)reason
+        payload:(NSDictionary * _Nullable)payload
+        success:(void(^_Nullable)(void))success
+        failure:(void (^_Nullable)(NSError * _Nullable error))failure;
+
+/**
+ Join a Call.
+
+ @param roomName Twilio room name.
+ @param success success return block, use accessToken to connect to the call via the TwilioVideo SDK.
+ @param failure failure return block.
+
+ */
+
+- (void)joinCall:(NSString * _Nonnull)roomName
+         success:(void(^_Nullable)(NSString * _Nullable accessToken))success
+         failure:(void (^_Nullable)(NSError * _Nullable error))failure;
+
+/**
+ Answer a Call.
+
+ @param roomName Twilio room name.
+ @param callId The TTCall id.
+ @param payload A dictionary object you wish to attach to the call payload (will get delivered to recipients).
+ @param success success return block, use accessToken to connect to the call via the TwilioVideo SDK.
+ @param failure failure return block.
+
+ */
+
+- (void)answerCall:(NSString * _Nonnull)roomName
+            callId:(NSString * _Nonnull)callId
+           payload:(NSDictionary * _Nullable)payload
+           success:(void(^_Nullable)(void))success
+           failure:(void (^_Nullable)(NSError * _Nullable error))failure;
+
+/**
+ Update Call state.
+
+ @param roomName Twilio room name.
+ @param callId The TTCall id.
+ @param payload A dictionary object you wish to attach to the call payload (will get delivered to recipients).
+ @param success success return block.
+ @param failure failure return block.
+
+ */
+
+- (void)updateCallState:(NSString * _Nonnull)roomName
+                 callId:(NSString * _Nonnull)callId
+                payload:(NSDictionary * _Nullable)payload
+                success:(void(^ _Nullable)(void))success
+                failure:(void (^ _Nullable)(NSError * _Nullable error))failure;
+
+
+/**
+ Invite users to Call.
+
+ @param participantIds Array of user ids you wish to invite to the Twilio room.
+ @param roomName Twilio room name.
+ @param payload A dictionary object you wish to attach to the call payload (will get delivered to recipients).
+ @param isVideo Indicates the call type, pass YES for Video call or NO for Audio call.
+ @param success success return block, use accessToken and roomName to connect to the call via the TwilioVideo SDK.
+ @param failure failure return block.
+
+ */
+
+- (void)inviteUsersToCall:(NSArray *_Nonnull)participantIds
+                 roomName:(NSString *_Nonnull)roomName
+                  payload:(NSDictionary *_Nullable)payload
+                  isVideo:(BOOL)isVideo
+                  success:(void(^_Nullable)(void))success
+                  failure:(void (^_Nullable)(NSError *_Nullable error))failure;
+
+/**
+ Determine if the preimum feature is enabled for an organization.
+
+ @param isGroup Indicates the call target, pass YES for a group call or NO for one-on-one call.
+ @param isVideo Indicates the call type, pass YES for Video call or NO for Audio call.
+ @param isPatientFacing Indicates the call destination, pass YES to start a call with a patient and not a TT user.
+ @param organizationToken The organization token for the call.
+
+ */
+
+- (BOOL)isVoipCallEnabled:(BOOL)isGroup
+                  isVideo:(BOOL)isVideo
+          isPatientFacing:(BOOL)isPatientFacing
+        organizationToken:(NSString *_Nonnull)organizationToken;
+
+
+/**
+ *  Retrieve a patient for the provided token.
+ *
+ *  @param token A user token.
+ *
+ *  @return A TTPatient object with the provided token.
+ */
+- (TTPatient *_Nullable)patientWithToken:(NSString *_Nonnull)token;
+
+/**
+ *  Retrieve a patient contact for the provided token.
+ *
+ *  @param token A user token.
+ *
+ *  @return A TTPatientContact object with the provided token.
+ */
+- (TTPatientContact *_Nullable)patientContactWithToken:(NSString *_Nonnull)token;
 
 @end

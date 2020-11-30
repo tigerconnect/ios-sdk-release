@@ -55,14 +55,14 @@
 /**
  * Value of the TTSettingItem.
  * @discussion The class of `value` is dependent on the the `type` property.
- * The following types have BOOL values: TTKitSettingDeleteOnRead, TTKitSettingDoNotDisturb, TTKitSettingNotificationAlerts, TTKitSettingNotificationBadges, TTKitSettingNotificationSounds, TTKitSettingPINLock, TTKitSettingForward, TTKitSettingInAppAlertSounds, TTKitSettingPendingAdminApproval, TTKitSettingAllowPublicGroups, TTKitSettingAllowDNDAutoforward, TTKitSettingPriorityMessaging, TTKitSettingSessionExpired, TTKitSettingDisableChangePassword, TTKitSettingRoleService, TTKitSettingClickToCall, TTKitSettingCalendarService, TTKitSettingEnableMissedCallNotifications, TTKitSettingOrganizationEULA, TTKitSettingAlertsService, TTKitSettingPatientCare, TTKitSettingVoipService, TTKitSettingVideoCallService, TTKitSettingNoPhotos, TTKitSettingNoAttachments, TTKitSettingEscalations, TTKitSettingGroupAudioCallService, TTKitSettingGroupVideoCallService, TTKitSettingPatientGroupAudioCallService, TTKitSettingPatientGroupVideoCallService, TTKitSettingPatientVoipService, TTKitSettingPatientVideoCallService
+ * The following types have BOOL values: TTKitSettingDeleteOnRead, TTKitSettingDoNotDisturb, TTKitSettingNotificationAlerts, TTKitSettingNotificationBadges, TTKitSettingNotificationSounds, TTKitSettingPINLock, TTKitSettingForward, TTKitSettingInAppAlertSounds, TTKitSettingPendingAdminApproval, TTKitSettingAllowPublicGroups, TTKitSettingAllowDNDAutoforward, TTKitSettingPriorityMessaging, TTKitSettingSessionExpired, TTKitSettingDisableChangePassword, TTKitSettingRoleService, TTKitSettingClickToCall, TTKitSettingCalendarService, TTKitSettingEnableMissedCallNotifications, TTKitSettingOrganizationEULA, TTKitSettingAlertsService, TTKitSettingPatientCare, TTKitSettingVoipService, TTKitSettingVideoCallService, TTKitSettingNoPhotos, TTKitSettingNoAttachments, TTKitSettingEscalations, TTKitSettingGroupAudioCallService, TTKitSettingGroupVideoCallService, TTKitSettingPatientGroupAudioCallService, TTKitSettingPatientGroupVideoCallService, TTKitSettingPatientVoipService, TTKitSettingPatientVideoCallService, TTKitSettingPatientNoPhotos, TTKitSettingPatientNoAttachments, TTKitSettingPatientQuickAdd, TTKitSettingPatientQuickCall, TTKitSettingPatientCallInviteTTL, TTKitSettingPatientScheduledMessages, TTKitSettingPatientBroadcast, TTKitSettingPatientQuickVideo
  * 
  *
  * The following types have NSString values: TTKitSettingDoNotDisturbText, TTKitSettingPushSound, TTKitSettingStatus, TTKitSettingDepartment, TTKitSettingTitle, TTKitSettingPreferredEmail, TTKitSettingPreferredPhone, TTKitSettingDNDAutoforwardReceiver, TTKitSettingOrganizationClickToCallNumber, TTKitSettingOrganizationClickToCallLabel, TTKitSettingOrganizationClickToCallContactCurrentName, TTKitSettingClickToCallOutGoingContactName, TTKitSettingClickToCallOutGoingContactToken, TTKitSettingOrganizationEULAURL.
  *
  * The following types have integer values: TTKitSettingTimeToLive, TTKitSettingPINDuration.
  *
- * The following types have array values: TTKitSettingDNDAutoforwardSetters, TTKitSettingQuickReplies.
+ * The following types have array values: TTKitSettingDNDAutoforwardSetters, TTKitSettingQuickReplies, TTKitSettingPatientQuickReplies. 
  */
 @property (nullable, nonatomic, retain) id value;
 

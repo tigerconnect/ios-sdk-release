@@ -20,6 +20,11 @@
 @property (nullable, nonatomic, retain) NSSet<TTPatientContact *> *contacts;
 @property (nullable, nonatomic, retain) NSSet<TTGroup *> *patientGroups;
 
+/**
+ *  Did Patient opted out of sms messages. Boolean value.
+ */
+@property (nullable, nonatomic, retain) NSNumber * isOptedOut;
+
 @end
 
 @interface TTPatient (CoreDataGeneratedAccessors)

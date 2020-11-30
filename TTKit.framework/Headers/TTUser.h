@@ -12,7 +12,7 @@
 
 @class TTShift;
 
-@class TTGroup, TTMessage, TTMessageStatus, TTRole, TTRoleGroup, TTEscalation, TTEscalationPolicy, TTTeam, TTTeamRequest;
+@class TTGroup, TTMessage, TTMessageStatus, TTRole, TTRoleGroup, TTEscalation, TTEscalationPolicy, TTTeam, TTTeamRequest, TTScheduleMessage, TTMessageTemplate;
 
 @interface TTUser : TTParty
 
@@ -159,6 +159,14 @@
 @property (nullable, nonatomic, retain) NSSet<TTTeamRequest *> *teamRequests;
 
 @property (nullable, nonatomic, retain) NSSet<TTTeamRequest *> *teamActions;
+
+@property (nullable, nonatomic, retain) NSSet<TTScheduleMessage *> *createdScheduleMessages;
+
+@property (nullable, nonatomic, retain) NSSet<TTScheduleMessage *> *updatedScheduleMessages;
+
+@property (nullable, nonatomic, retain) NSSet<TTMessageTemplate *> *createdMessageTemplates;
+
+@property (nullable, nonatomic, retain) NSSet<TTMessageTemplate *> *upadtedMessageTemplates;
 
 @end
 

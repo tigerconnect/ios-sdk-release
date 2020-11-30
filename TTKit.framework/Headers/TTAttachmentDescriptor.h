@@ -55,4 +55,10 @@
  */
 @property (nonnull, nonatomic, retain) TTMessage *message;
 
+
+/**
+*    Attachment filename.
+*/
+@property (nonnull, nonatomic, retain) NSString * filename;
+
 @end

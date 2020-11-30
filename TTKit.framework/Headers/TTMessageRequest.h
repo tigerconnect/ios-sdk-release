@@ -67,6 +67,11 @@
 @property (nullable, nonatomic, readonly) NSString *attachmentMimeType;
 
 /**
+ *  Attachment file name
+ */
+@property (nullable, nonatomic, readonly) NSString *attachmentFilename;
+
+/**
  *  An Array of NSDictionaries representing message metadata in datum format (namespace, mimetype, payload).
  *  Use addMessageMetadata:mimeType:payload to add to this array
  */
@@ -90,15 +95,14 @@
  *  @param data Attachment data.
  *  @param mimeType Attachment mime type.
  */
-- (void)setMessageAttachmentWithData:(NSData *_Nonnull)data mimeType:(NSString *_Nonnull)mimeType;
+- (void)setMessageAttachmentWithData:(NSData *_Nonnull)data mimeType:(NSString *_Nonnull)mimeType attachmentFilename:(NSString *_Nullable)attachmentFilename;
 
 /**
  *  Set message attachment with file path.
  *  @param filePath Attachment file path.
  *  @param mimeType Attachment mime type.
  */
-- (void)setMessageAttachmentWithFilePath:(NSString *_Nonnull)filePath mimeType:(NSString *_Nonnull)mimeType;
-
+- (void)setMessageAttachmentWithFilePath:(NSString *_Nonnull)filePath mimeType:(NSString *_Nonnull)mimeType attachmentFilename:(NSString *_Nullable)attachmentFilename;
 
 /**
  *  Add message metadata.

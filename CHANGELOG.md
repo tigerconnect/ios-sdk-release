@@ -1,15 +1,19 @@
 # TigerConnect Change Log
+## 1.9.1
+
+* Video Call APIs
+* Bug fixes and performance improvements
 
 ## 1.8.1
 
 * Mute Conversations
 * Search Groups
 * Roles
-* Bug fixes and performance improvments
+* Bug fixes and performance improvements
 
 ## 1.7
 
-* Bug fixes and performance improvments
+* Bug fixes and performance improvements
 
 ## 1.5.4
 
@@ -17,7 +21,7 @@
 
 ## 1.5.3
 
-* Fixed TTKit testing enviroment issue
+* Fixed TTKit testing environment issue
 * Miscellaneous stability and performance enhancements
 
 ## 1.5.1

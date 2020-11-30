@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TTMessage, TTMetadata, TTRosterEntry, TTCallLog;
+@class TTMessage, TTMetadata, TTRosterEntry, TTCallLog, TTScheduleMessage;
 
 /**
  *  TTParty is an abstract class, inherited by TTUser and TTGroup.
@@ -110,6 +110,8 @@
  *  Inverse relationship from TTCallLog taget.
  */
 @property (nullable, nonatomic, retain) NSSet<TTCallLog *> *callLogTarget;
+
+@property (nullable, nonatomic, retain) NSSet<TTScheduleMessage *> *scheduleMessages;
 
 @end
 

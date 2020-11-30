@@ -22,6 +22,9 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
     TTMessageTypePatientNetworkForwardedToProvider,
     TTMessageTypeTeamRequest,
     TTMessageTypeSystem,
+    TTMessageTypeSMSOptOut,
+    TTMessageTypeSMSOptIn,
+    TTMessageTypeScheduleMessage,
 };
 
 typedef NS_ENUM(NSInteger, TTMessagePriority) {
@@ -105,7 +108,7 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
 /**
  *  Original creation date for forwarded message.
  */
-@property (nullable, nonatomic, retain) NSDate   * originalTimestamp;
+@property (nullable, nonatomic, retain) NSDate * originalTimestamp;
 
 /**
  *  Organization token of the TTMessage’s recepient.
@@ -208,10 +211,17 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
 @property (nullable, nonatomic, retain) NSNumber *priority;
 
 /**
+ *  Indicates message was a scheduled message,
+ *  Boolean value
+ */
+@property (nullable, nonatomic, retain) NSNumber *isScheduleMessage;
+
+/**
  *  Indicates message was a system-generated automated message,
  *  Example: DND Auto-Forward reciever set/unset notifications.
  */
 @property (readonly) BOOL isAutomatedMessage;
+
 
 /**
  *  For internal use, should not be changed.
@@ -256,5 +266,45 @@ typedef NS_ENUM(NSInteger, TTMessagePriority) {
  *  Team Request Object.
  */
 @property (nullable, nonatomic, retain) TTTeamRequest *teamRequest;
+
+/**
+ *  Is the message a call bang. A call bang message will have data about the call duration, type (audio/video) and caller.
+ */
+- (BOOL)isMessageACallBang;
+
+/**
+ *  Is the call bang an incoming audio call.
+ */
+- (BOOL)isIncomingAudioCallBang;
+
+/**
+ *  Is the call bang an outgoing audio call.
+ */
+- (BOOL)isOutgoingAudioCallBang;
+
+/**
+ *  Is the call bang an incoming video call.
+ */
+- (BOOL)isIncomingVideoCallBang;
+
+/**
+ *  Is the call bang an outgoing video call.
+ */
+- (BOOL)isOutgoingVideoCallBang;
+
+/**
+ *  Is the call bang an missed audio call.
+ */
+- (BOOL)isMissedAudioCallBang;
+
+/**
+ *  Is the call bang an missed video call.
+ */
+- (BOOL)isMissedVideoCallBang;
+
+/**
+ *  call bang caller name.
+ */
+- (NSString * _Nullable)callerDisplayName;
 
 @end

@@ -119,4 +119,11 @@
  */
 - (BOOL)isIntraTeamGroup;
 
+/**
+ * Checks whether the patient or patient contact in the group has opted out of sms.
+ *
+ @return YES if the patient or patient contact opted out of sms.
+ */
+- (BOOL)patientOrContactDidOptOut;
+
 @end

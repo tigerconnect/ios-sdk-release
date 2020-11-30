@@ -54,4 +54,6 @@ FOUNDATION_EXPORT const unsigned char TTKitVersionString[];
 #import <TTKit/TTPatientForwardMessageMetadata.h>
 #import <TTKit/TTTeam.h>
 #import <TTKit/TTTeamRequest.h>
+#import <TTKit/TTScheduleMessage.h>
+#import <TTKit/TTMessageTemplate.h>
 

@@ -156,6 +156,11 @@ typedef NS_ENUM(NSInteger, TTKitSetting)
     TTKitSettingQuickReplies,
     
     /**
+     *  Setting for the predefined list of Patient network quick replies. The key for this setting type is "patient_quick_replies", and the value is an array of strings. The default for this setting is an empty array.
+     */
+    TTKitSettingPatientQuickReplies,
+    
+    /**
      *  Setting for whether missed call notifications are enabled. The key for this setting type is "enable_c2c_notifications", and the value is a boolean. The default for this setting is `@YES`.
      */
     TTKitSettingEnableMissedCallNotifications,
@@ -289,6 +294,46 @@ typedef NS_ENUM(NSInteger, TTKitSetting)
      *  Setting for whether video call feature is enabled. The key for this setting type is "video_call", and the value is a boolean. The default for this setting is `@NO`.
      */
     TTKitSettingPatientVideoCallService,
+    
+    /**
+     *  Setting for whether attachments are allowed in a patient conversation. If the value is `@YES`, then attachments are not allowed. The key for this setting type is "no_attachment", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientNoAttachments,
+    
+    /**
+     *  Setting for whether sending photos is allowed in a patient conversation . If the value is `@YES`, then photos are not allowed. The key for this setting type is "no_photo", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientNoPhotos,
+    
+    /**
+     *  Setting for whether provider has permission to add patient in patient network. The key for this setting type is "pf_quick_add", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientQuickAdd,
+    
+    /**
+     *  Setting for whether provider has permission to call a patien using click to call in patient network. The key for this setting type is "pf_quick_call", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientQuickCall,
+    
+    /**
+     *  Setting for patient facing call ttl in seconds. The key for this setting type is "pf_video_call_link_ttl", and the value is a int. The default for this setting is nil.
+     */
+    TTKitSettingPatientCallInviteTTL,
+    
+    /**
+     *  Setting for whether provider has permission to patient facing scheduled messages. The key for this setting type is "pf_schedule_messages", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientScheduledMessages,
+    
+    /**
+     *  Setting for whether provider has permission to patients broadcast list. The key for this setting type is "pf_broadcast", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientBroadcast,
+    
+    /**
+     *  Setting for whether provider has permission to video call a patient phone number in patient network. The key for this setting type is "pf_quick_call", and the value is a boolean. The default for this setting is `@NO`.
+     */
+    TTKitSettingPatientQuickVideo,
 
 
 };

@@ -20,6 +20,8 @@
 @property (nullable, nonatomic, retain) NSString *contactName;
 @property (nullable, nonatomic, retain) NSString *contactRelation;
 
+@property (nullable, nonatomic, retain) NSString *groupName;
+
 + (TTPatientForwardMessageMetadata * _Nullable)parseMetadataPayload:(NSDictionary * _Nonnull)metadata;
 
 @end
